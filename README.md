@@ -17,6 +17,9 @@ order.
 [Projects](https://nhs-r-community.github.io/intro-r-rstudio/session-projects.html#/title-slide)
 [Opening Quarto](https://nhs-r-community.github.io/intro-r-rstudio/session-quarto.html#/title-slide)
 
+## Break
+[Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)
+
 ## Importing data
 [Import a csv](https://nhs-r-community.github.io/intro-r-rstudio/session-csv.html#/title-slide)
 [Import a messy csv](https://nhs-r-community.github.io/intro-r-rstudio/session-messy-csv.html#/title-slide)
@@ -34,6 +37,9 @@ order.
 [{dplyr} showcase more functions](https://nhs-r-community.github.io/intro-r-rstudio/session-dplyr-showcase.html#/title-slide)
 [Using {stringr} for cleaning with strings (for example % wildcard searches)](https://nhs-r-community.github.io/intro-r-rstudio/session-stringr.html#/title-slide)
 [Joining data together](https://nhs-r-community.github.io/intro-r-rstudio/session-joins.html#/title-slide)
+
+## Break
+[Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)
 
 ## Help section
 [Finding help on functions using RStudio and the internet](https://nhs-r-community.github.io/intro_r/05-workshop_functions.html#1)
