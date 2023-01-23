@@ -28,6 +28,7 @@ order.
 [Set up SQL database connections](https://nhs-r-community.github.io/intro-r-rstudio/session-sql.html#/title-slide)  
 
 ## Important features of coding
+[Creating new objects](https://nhs-r-community.github.io/intro-r-rstudio/session-objects.html#/title-slide)
 [Introducing vectors](https://nhs-r-community.github.io/intro-r-rstudio/session-vectors.html#/title-slide)  
 [How to style your R code](https://nhs-r-community.github.io/intro-r-rstudio/session-styling.html#/title-slide)  
 
@@ -41,7 +42,7 @@ order.
 ## Break
 [Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
 
-## Help section
+## Finding Help
 [Finding help on functions using RStudio and the internet](https://nhs-r-community.github.io/intro_r/05-workshop_functions.html#1)  
 [Ongoing learning resources](https://nhs-r-community.github.io/intro_r/09-workshop-learning.html#1)  
 

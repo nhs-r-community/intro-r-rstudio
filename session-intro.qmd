@@ -19,44 +19,38 @@ execute:
 
 ## Agenda - morning
 
-Using R Studio
+Chapter overview
 
-What are packages
-
-Using Projects
-
-Opening Quarto 
-
---------- Break -----------
-
-Importing data
-
-Import features of coding
-
-Naming objects
-
+::: {.fragment .fade-in}
+Introduction and getting started  
+:::
+::: {.fragment .fade-in}
+--------- Break -----------  
+:::
+::: {.fragment .fade-in}
+Importing data  
+:::
+::: {.fragment .fade-in}
+Import features of coding  
+:::
 ::: {.fragment .fade-in}
 --------- Lunch (1 hour) -----------
 :::
 
+
 ## Agenda - afternoon
 
-How to style your R code
+Chapter overview
 
-Cleaning data using {janitor}
-
-Manipulating data using {dplyr}
-
-Using {stringr} for strings 
-
-Joining datasets
-
+::: {.fragment .fade-in}
+Manipulating data
+:::
+::: {.fragment .fade-in}
 --------- Break -----------
-
-What does this function do?
-
-Ongoing learning resources
-
+:::
+::: {.fragment .fade-in}
+Finding help
+:::
 ::: {.fragment .fade-in}
 --------- Finish about 430-5pm ---------
 :::

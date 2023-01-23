@@ -1,0 +1,88 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - objects"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+    echo: true
+    eval: true
+---
+
+## Creating an object
+
+````{r}
+#| label: "libs"
+#| include: false
+library(readr)
+library(dplyr)
+```
+
+```{r }
+#| label: "load-data"
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), 
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+                      skip = 3)
+```
+
+Objects that are created from imported data appear in the Environment pane  
+
+It is possible to also create objects from code
+
+
+## Temporary and temporary
+
+The following code exists only as the code is run and the underlying object `beds_data` is never changed
+
+```{r}
+
+beds_data |> 
+  group_by(org_name) |> 
+  summarise(total_beds = sum(beds_av, na.rm = TRUE),
+            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
+  mutate(perc_occ = total_occupancy / total_beds) |> 
+  arrange(desc(perc_occ))
+
+```
+
+## Saving as an object
+
+In R the assign operator `<-` is conventionally used instead of `=` although that will work
+
+```{r}
+
+bed_occupancy <- beds_data |> 
+  group_by(org_name) |> 
+  summarise(total_beds = sum(beds_av, na.rm = TRUE),
+            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
+  mutate(perc_occ = total_occupancy / total_beds) |> 
+  arrange(desc(perc_occ))
+
+```
+
+## Naming style
+
+The way names are written out is a question of style but it's best to be consistent. 
+
+Other ways of writing names will work but are best avoided like `ALLCAPS` and `With Spaces`
+
+```{r}
+#| eval: false
+camelCase # first letter is small case
+
+PascalCase # every letter is capital
+
+snake_case # lower case and words are separated with underline
+
+kebab-case # lower case and hyphen, used in RMarkdown but not R scripts
+```
+
+## End session
