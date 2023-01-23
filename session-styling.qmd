@@ -20,13 +20,22 @@ execute:
 ## Code style
 
 ```{r}
+#| echo: false
+#| label: "libs"
+#| include: false
+library(readr)
+library(countdown)
+
+```
+
+```{r}
 #| echo: false 
 beds_data <- read_csv("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv", 
     col_types = cols(date = col_date(format = "%d/%m/%Y")), 
     skip = 3)
 ```
 
-An updated version of R4DS now includs a section on [code style](https://r4ds.hadley.nz/workflow-style.html) 
+An updated version of R4DS now includes a section on [code style](https://r4ds.hadley.nz/workflow-style.html) 
 
 It particularly mentions the package {styler} which, when run becomes an addin to RStudio, and automatically applies the [tidyverse style](https://style.tidyverse.org/) to code
 

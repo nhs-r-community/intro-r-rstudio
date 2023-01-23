@@ -17,6 +17,15 @@ execute:
     echo: false
 ---
 
+```{r}
+#| label: "libs"
+#| include: false
+#| eval: true
+#| echo: false
+library(countdown)
+```
+
+
 ## Projects
 
 <img src="img/session02/cracked_setwd.PNG" alt="Alison Horst&apos;s cartoons of three cubes, there is a setwd looking cross having broken an arm and a leg, the RProj with a skateboard and a small, concentrating purple cube with a helmet doing tricks on its skateboard" width="40%"/>

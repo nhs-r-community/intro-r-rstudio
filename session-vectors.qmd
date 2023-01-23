@@ -23,7 +23,6 @@ execute:
 #| echo: false
 #| label: "libs"
 #| include: false
-library(countdown)
 library(readr)
 library(dplyr)
 

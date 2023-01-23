@@ -20,7 +20,6 @@ execute:
 ```{r}
 #| label: "libs"
 #| include: false
-library(countdown)
 library(readr)
 ```
 

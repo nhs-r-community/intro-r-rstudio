@@ -19,13 +19,6 @@ execute:
 
 ## Section - Data import
 
-```{r}
-#| echo: false
-#| label: "libs"
-#| include: false
-library(countdown)
-```
-
 ## SQL connections
 
 - A great number of data sources are via SQL servers
