@@ -1,0 +1,130 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Projects"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+    eval: false
+    echo: false
+---
+
+## Projects
+
+<img src="img/session02/cracked_setwd.PNG" alt="Alison Horst&apos;s cartoons of three cubes, there is a setwd looking cross having broken an arm and a leg, the RProj with a skateboard and a small, concentrating purple cube with a helmet doing tricks on its skateboard" width="40%"/>
+
+## Working Directory
+
+If you tell R/R Studio to look for a file, or save a plot, it will (by default) look in a place called the working directory (wd)
+
+<img src="img/session02/working-directory.PNG" alt="Screenshot of the tabs Console/Terminal and Jobs in RStudio and underneath the location of the workshop at ~/workshop-r" class="center"/>
+
+Often defaults to the "Documents" folder but can be changed in Tools/Global Options
+
+## Bookmarks
+
+A Project can make it easier to find tell your session where to get files from and where to save them but, like bookmarks, you can:
+
+::: incremental
+-   share this location with others
+-   move between projects easily
+:::
+
+## Project menu
+
+::: columns
+::: {.column width="50%"}
+Step 1
+
+</br> <img src="img/session02/project-list.PNG" alt="Screenshot of the specific project menu from the top right area of RStudio" class="center"/>
+:::
+
+::: {.column width="50%"}
+Step 2
+
+</br> <img src="img/session02/project-wizard.PNG" alt="Screenshot of the project wizard when new Project... selected" class="center"/>
+:::
+:::
+
+## Project Type and Name wizards
+
+::: columns
+::: {.column width="50%"}
+Step 3
+
+</br> <img src="img/session02/project-type.PNG" alt="Screenshot of the project type list starting with New Project but includes R Package and Shiny Application" class="center"/>
+:::
+
+::: {.column width="50%"}
+Step 4
+
+</br> <img src="img/session02/project-name.PNG" alt="Screenshot of the project name wizard where the location can also be changed" class="center"/>
+:::
+:::
+
+## Have a go
+
+*Not for the RStudio Cloud*
+
+1.  Create a project in an existing folder using the Project menu.
+2.  Note the name of the `.Rproj` file that is generated automatically. Where does this come from?
+3.  Create a new project, this time choosing the selection `Shiny Application`. What files are created in the new folder other than the `.Rproj`?
+4.  Using the Project menu move between the two projects.
+
+Extra:
+
+Delete one of the `.Rproj` files and then try to select it from the menu. What happens?
+
+```{r}
+countdown::countdown(minutes = 10,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Browsing in RStudio
+
+::: columns
+::: {.column width="40%"}
+Click the three dot icon in the bottom right quadrant, Files tab:
+:::
+
+::: {.column width="50%"}
+<img src="img/session02/wd-files.PNG" alt="A screenshot of the Files tab with the three dot button highlighted, the words Click to open and explorer type browser is on the image."/>
+:::
+:::
+
+## Getting back to the working directory
+
+::: columns
+::: {.column width="50%"}
+First way:
+
+Click the grey arrow next to the file pathway `~/` in the Console
+
+</br> <img src="img/session02/working-directory.PNG" alt="Screenshot of the working directory name and grey arrow found in the Console."/>
+:::
+
+::: {.column width="50%"}
+Second way:
+
+Once a project has been created an R hex logo appears in the Files tab next to the three dots
+
+<img src="img/session02/r-link-wd.PNG" alt="A screenshot of the Files tab with the R hex icon next to the three dots highlighted."/>
+:::
+:::
+
+## End session

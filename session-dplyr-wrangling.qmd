@@ -1,0 +1,436 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - Cleaning data with {dplyr}"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+    echo: true
+    eval: false
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: "libs"
+#| include: false
+library(countdown)
+library(readr)
+library(dplyr)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: "load-data"
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), 
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+                      skip = 3)
+```
+
+<img src="img/session06/dplyr_wrangling.PNG" alt="Cartoon image with the word dplyr: go wrangling above. There are two fluffy characters with the bigger called dplyr being ridden by a smaller character with a hat like a cowboy. The cowboy is rounding up three others called data that look less friendly and are being caught with the cowboy's whip" class="center"/>
+
+Artwork by @allison_horst
+
+## Wrangling
+
+Is the reshaping or transforming of data into a format which is easier to work with  
+
+This is often the largest part of many analyses and data science
+
+## A note on tidy data
+
+Tidyverse functions work best with tidy data:
+
+1. Each variable forms a column.
+1. Each observation forms a row.
+
+(Broadly, this means long rather than wide tables)
+
+
+## {dplyr} package
+
+- {dplyr} is a language for data manipulation  
+
+:::incremental
+- Most wrangling puzzles can be solved with knowledge of just a few dplyr verbs or functions 
+- Many of the concepts of these functions exist in SQL but dplyr (and other packages) can extend this further
+:::
+
+## 6 functions/verbs to start with
+
+6 key verbs will help us gain a deeper understanding of our data sets.
+
+Note `summarise()` can also be spelt `summarize()`
+
+```{r}
+dplyr::arrange()
+dplyr::filter()
+dplyr::mutate()
+dplyr::group_by()
+# followed often by 
+dplyr::ungroup()
+dplyr::summarise()
+```
+
+## Building with steps
+
+These verbs aren't used independently of each other. 
+
+Each can be a step in the code, like a recipe but can also be repeated.
+
+A recipe starts with:
+
+> potato then  
+peel then  
+slice into medium sized pieces then  
+boil for 25 minutes then  
+mash
+
+## Recipe as code
+
+The potato is the object in R terms and the steps are verbs or functions
+
+::: columns
+::: {.column width="50%"}
+Take a `potato` then
+`peel` then  
+`slice` into medium sized pieces then  
+`boil` for 25 minutes then  
+`mash`
+:::
+
+::: {.column width="50%"}
+`potato |> `  
+`peel() |> `  
+`slice(size = "medium" |> `  
+`boil(time = 25) |> `  
+`mash()`
+:::
+:::
+
+## Pipe
+
+::: columns
+::: {.column width="40%"}
+Shortcut key `Ctrl+Shift+m`
+
+You might be familiar with the pipe `|>` which comes from the {magrittr} and is available through the {tidyverse} but the new pipe `|>` doesn't require any packages to run
+:::
+
+::: {.column width="60%"}
+<img src="img/session-dplyr/native-pipe-options.PNG" alt="Screenshot of the Tools/Options wizard in the Code tab from the side and Editing at the top. Use native pipe operator option to select is highlighted."/>
+:::
+:::
+
+## Q1. Which organisation provided the highest number of Mental Health (MH) beds?
+
+## arrange()
+
+Reorder rows based on selected variable
+
+```{r}
+beds_data |> 
+  arrange(beds_av)
+```
+
+## Descending data
+
+We need descending order:
+
+```{r}
+#| code-line-numbers: "2"
+
+beds_data |> 
+  arrange(desc(beds_av))
+```
+
+`desc()` works for text and numeric variables
+
+## Q2. Which 2 organisations provided the highest number of MH beds in September 2018?
+
+::: incremental
+- We'll use `arrange()` as before
+- But we require only observations with this date
+:::
+
+## filter()
+
+The expression inside brackets should return TRUE or FALSE.
+We are choosing rows where this expression is TRUE.
+
+```{r}
+#| code-line-numbers: "2"
+beds_data |> 
+  filter(date == "2018-09-01") 
+```
+
+
+## A negative test of equality
+
+To exclude and test where the expression is NOT equal `!=`
+
+```{r}
+#| code-line-numbers: "2"
+beds_data |> 
+  filter(date != "2018-09-01") 
+```
+
+## Ordered and filtered
+
+```{r}
+#| code-line-numbers: "2|3"
+beds_data  |> 
+  arrange(desc(beds_av)) |> 
+  filter(date == "2018-09-01") 
+```
+
+## Find the top 2 organisations
+
+This isn't a key function but useful
+
+```{r}
+#| code-line-numbers: "4"
+beds_data  |> 
+  arrange(desc(beds_av)) |> 
+  filter(date == "2018-09-01") |> 
+  slice_head(n = 2)
+```
+
+## Q3. Which 5 organisations had the highest percentage bed occupancy in September 2018?
+
+::: incremental
+- We'll use `arrange()` as before
+- We'll use `filter()` as before
+- But we don't have a percentage variable in the data
+:::
+
+## Create new variables
+
+= in this context is an alias not a test of equality
+
+```{r}
+#| code-line-numbers: "2|4"
+beds_data |> 
+  mutate(perc_occ = occ_av / beds_av) |> 
+  filter(date == "2018-09-01") |> 
+  arrange(desc(perc_occ)) 
+```
+
+## Q4. What was the mean number of beds, (across all trusts) for each value of date?
+
+::: incremental
+- Let's first look at how we'd produce summary statistics like a mean
+- And then see how this can be applied to groups of data
+:::
+
+## summarise()
+
+Collapses a single summary value
+
+```{r}
+#| code-line-numbers: "2"
+beds_data |> 
+  summarise(mean_beds = mean(beds_av))
+```
+
+## Missing values
+
+We'll need to remove NA values to get a suitable mean. `TRUE` can also be `T`
+
+```{r}
+#| code-line-numbers: "3"
+beds_data |> 
+  summarise(mean_beds = mean(beds_av,
+                             na.rm = TRUE)) 
+```
+
+## Have a go!
+
+Instead of `mean()` use `median()`
+
+```{r}
+object |> 
+  summarise(new_name = function_name(column_name,
+                                     na.rm = ???))
+
+```
+
+
+Use a `sum()` statistic twice
+
+```{r}
+object |> 
+  summarise(col_1 = function_name(beds_av,
+                                  na.rm = ???),
+            col_2 = function_name(occ_av),
+            na.rm = ???)
+)
+
+```
+
+```{r}
+#| eval: true
+#| echo: false
+countdown::countdown(minutes = 10,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Answer for summary statistics
+
+`median()`
+
+```{r}
+#| eval: true
+beds_data |> 
+  summarise(per_occ = median(beds_av,
+                             na.rm = TRUE))
+```
+
+`sum()`
+
+```{r}
+#| eval: true
+beds_data |> 
+  summarise(total_beds = sum(beds_av, na.rm = TRUE),
+            total_occupacy = sum(occ_av, na.rm = TRUE))
+```
+
+## Applying `summarise()` to groups
+
+::: incremental
+- Now we know how to use summarise (mean)
+- We'll produce a summary value for **each value of date**
+:::
+
+## group_by() - persistent grouping
+
+`group_by()` does nothing to the output alone.  
+The change occurs behind the scenes. 
+
+```{r}
+#| code-line-numbers: "2"
+beds_data |> 
+  group_by(date) 
+
+```
+
+## ungroup()
+
+<img class="center" src="img/session06/group_by_ungroup.png" alt="Cartoon of fuzzy creatures created by Allison Horts with party hats on. Two are together and happy but one is behind holding a present and looking sad. The words."/>
+
+## Seeing ungroup()
+
+`head()` is the base R version of `slice()` and is unaffected by `group_by()`
+
+```{r}
+beds_data |> 
+  group_by(date) |> 
+  head(1)
+```
+
+```{r}
+beds_data |> 
+  group_by(date) |> 
+  ungroup() |> 
+  slice_head(n = 1)
+```
+
+## Group by - in operation
+
+The `summarise()` function currently relies upon the `group_by()` function to apply summary statistics to groups/sets but in a new release the reliance will be changed to be function specific. Currently code 
+
+```{r}
+#| code-line-numbers: "2|3"
+beds_data |> 
+  group_by(date) |>
+  summarise(mean_beds = mean(beds_av, 
+                             na.rm = TRUE))
+```
+
+```{r}
+#| echo: false 
+#| code-line-numbers: "3"
+beds_data |> 
+  summarise(mean_beds = sum(beds_av),
+            .groups = c(org_code, org_name)
+            )
+```
+
+## Break
+
+```{r}
+#| echo: false
+#| eval: true
+countdown::countdown(minutes = 10,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Q5. Which 5 organisations have the highest mean % bed occupancy? 
+
+:::incremental
+- For each of the organisations `group_by()`
+- Add 2 summary statistics, total_beds/total_occupancy to `summarise()` the data 
+- `mutate()` the data to create a percentage using the previous 
+- Order to find highest by using `arrange()`
+:::
+
+## Hint
+
+```{r}
+beds_data |> 
+  group_by() |> 
+  summarise() |>
+  mutate() |> 
+  arrange()
+```
+
+```{r}
+#| echo: false
+#| eval: true
+countdown::countdown(minutes = 10,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Solution
+
+```{r}
+beds_data |> 
+  group_by(org_name) |> 
+  summarise(total_beds = sum(beds_av, na.rm = TRUE),
+            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
+  mutate(perc_occ = total_occupancy / total_beds) |> 
+  arrange(desc(perc_occ))
+
+```
+

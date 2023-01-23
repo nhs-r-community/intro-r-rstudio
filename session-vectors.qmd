@@ -1,0 +1,101 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - Vectors"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false
+---
+
+## Section - Data manipulation 
+
+```{r}
+#| echo: false
+#| label: "libs"
+#| include: false
+library(countdown)
+library(readr)
+library(dplyr)
+
+```
+
+```{r}
+#| echo: false
+#| label: "load-data"
+#| eval: false
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), 
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+                      skip = 3)
+```
+
+## Vectors
+
+Are a type of data format in R but may be familiar
+
+You can create a vector with function: `c()` for `concatenate/combine`. In SQL it would just be `()` with no c
+
+```{r}
+c(100, 80, 200)
+
+c("beds", "staff", "patients")
+
+# Mixing strings (characters) and numeric values results in all being strings
+c("beds", 80, "patients") 
+```
+
+## Looking for more than one string
+
+```{r}
+
+c("Bradford District Care", "Bradford District Care Trust")
+
+```
+
+Filter by org_name IN the lookup list.
+
+```{r }
+#| code-line-numbers: "2"
+beds_data |> 
+  filter(org_name %in% c("Bradford District Care", "Bradford District Care Trust")) 
+```
+
+Code would look like this in SQL
+
+```{sql}
+SELECT *
+FROM Table
+WHERE Colm IN ('Bradford District Care', 'Bradford District Care Trust')
+
+```
+
+## Negative or NOT IN
+
+Filter by org_name NOT IN the lookup list.
+
+```{r }
+#| code-line-numbers: "2"
+beds_data |> 
+  filter(!org_name %in% c("Bradford District Care", "Bradford District Care Trust"))
+```
+
+In SQL
+
+```{sql}
+SELECT *
+FROM Table
+WHERE Colm NOT IN ('Bradford District Care', 'Bradford District Care Trust')
+```
+
+## End session
+
+

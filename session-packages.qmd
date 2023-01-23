@@ -1,0 +1,129 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - Packages"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+    echo: true
+    eval: false
+---
+
+## Packages
+
+Quotations in R can be either double or single quotes but cannot be mixed or omitted:
+
+```{r}
+# either
+install.packages("tidyverse")
+
+# or
+install.packages('tidyverse')
+```
+
+will download a package to your personal library (quotes can be used)
+
+```{r}
+library(tidyverse) 
+```
+
+tells R to load the package from your personal library and is needed for every new session/script
+
+::: notes
+On work computer networks the packages get saved to personal files on C: drives so are not accessible to everyone
+
+Good practice to detail what you use in the script, RStudio will pick up references to packages not yet loaded (on CRAN)
+
+Delete unused packages
+:::
+
+## Package locations
+
+### CRAN repository
+
+[Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
+
+18,903 packages (April 2022). Free. Peer reviewed.
+
+### GitHub
+
+Many useful packages in development or subject to a lot of change are not on CRAN and are available through GitHub including [{NHSRtheme}](https://github.com/nhs-r-community/NHSRtheme). These won't be peer reviewed.
+
+### ROpenSci
+
+ROpenSci offer a peer reviewed ecosystem of R packages through GitHub including UKHSA's [{fingertipsR}](https://github.com/ropensci/fingertipsR)
+
+## {tidyverse}
+
+::: columns
+::: {.column width="40%"}
+Curly brackets around a {package} is used in text as many packages have "real names"
+:::
+
+::: {.column width="60%"}
+<img src="img/session01/tidyverse.PNG" alt="The tidyverse name in a black screen with coloured dots like stars" class="center"/>
+:::
+:::
+
+## What is the {tidyverse}?
+
+The [tidyverse package](https://www.tidyverse.org/) collects (some of) the most popular\
+R packages into one.
+
+Also refers to a coding style in R.
+
+## {tidyverse} debate
+
+Should you use {tidyverse} when many of the packages are redundant?
+
+Clashes occur with the packages which you are notified about, but not with those outside the package
+
+    -- Attaching packages ------------------------------------------ tidyverse 1.3.0 --
+    v ggplot2 3.3.3     v purrr   0.3.4
+    v tibble  3.1.0     v dplyr   1.0.4
+    v tidyr   1.1.2     v stringr 1.4.0
+    v readr   1.4.0     v forcats 0.5.1
+    -- Conflicts --------------------------------------------- tidyverse_conflicts() --
+    x dplyr::filter() masks stats::filter()
+    x dplyr::lag()    masks stats::lag()
+
+## Errors, warnings & notifications
+
+Warnings - not errors, just information on versions
+
+    Warning messages:
+    1: package ‘tidyverse’ was built under R version 4.0.4 
+    2: package ‘tidyr’ was built under R version 4.0.3 
+    3: package ‘readr’ was built under R version 4.0.3 
+    4: package ‘purrr’ was built under R version 4.0.3 
+    5: package ‘dplyr’ was built under R version 4.0.3 
+    6: package ‘stringr’ was built under R version 4.0.3 
+
+Don't rely upon colour changes as all three are orange in the console!
+
+## Install and load packages
+
+The wizard in RStudio for all of these CRAN packages is in the `Packages` tab in the bottom right or
+
+```{r}
+install.packages(dplyr)
+install.packages(datapasta)
+install.packages(usethis)
+
+# or in one line
+# install.packages(c("dplyr", "datapasta", "usethis"))
+
+library(dplyr)
+library(datapasta)
+library(usethis)
+```
+
+## End session

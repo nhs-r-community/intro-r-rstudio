@@ -1,0 +1,59 @@
+/*-- scss:defaults --*/
+
+$body-color: #000;
+$link-color: #009639;
+$body-bg: #FFF;
+$code-block-bg: #FFF;
+$code-bg: #FFF;
+$dark-bg-text-color: #FFF;
+$dark-bg-link-color: #FFF;
+
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
+h1, h2, h3, h4, p {
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #005EB8;
+    text-align: center;
+}
+
+/*-- scss:rules --*/
+
+.container{
+    display: flex;
+}
+
+.col{
+    flex: 1;
+}
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+.reveal .footer {
+  color: #005EB8;
+  font-family: 'Lato', Arial, sans-serif;
+  padding-bottom: 25px;
+}
+
+.reveal .slide-menu-button {
+    left: 100px;
+    top: 30px;
+    padding-left: 20px;
+    color: #005EB8;
+  }
+
+.reveal .progress {
+  background: #FFF;
+  color: #005EB8;
+  height: 2%;
+}
+
+.reveal section h2 {
+  color: #005EB8;
+}
+

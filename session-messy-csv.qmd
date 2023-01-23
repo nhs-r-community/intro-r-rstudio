@@ -1,0 +1,94 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Import a messy csv"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+    echo: false
+    eval: true
+---
+
+```{r}
+#| label: "libs"
+#| include: false
+library(countdown)
+library(readr)
+```
+
+```{r }
+#| label: "load-data"
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), 
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+                      skip = 3)
+```
+
+## Importing a csv that needs tidying
+
+### Exploring Mental Health (MH) Inpatient Capacity
+
+The following is some analysis of Mental Health inpatient capacity in England.
+
+### Background
+
+Maintaining clinical effectiveness and safety when a ward is fully occupied is a serious challenge for staff. 
+
+Inappropriate out of area placements have an added cost and also mean patients are separated from their social support networks.
+
+## The Data
+
+KH03 returns (bed numbers and occupancy) by organisation, published by NHS England.  
+
+Scraped from the [NHSE statistics](https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/bed-data-overnight/
+) website which is partially cleaned
+
+A good point to say that are [Government data standards](https://analysisfunction.civilservice.gov.uk/area_of_work/accessibility/) to make spreadsheets and charts accessible. 
+
+## Importing a messy dataset
+
+::: columns
+::: {.column width="40%"}
+Click on the file `beds_data.csv` in the Files pane (bottom right) and then `Import Dataset...`
+:::
+
+::: {.column width="60%"}
+<img class="center" src="img/session06/beds-data-wizard.PNG" alt="Screenshot of the import wizard with the beds_ae.csv data populating it. Notice that something isn't right."/>
+:::
+:::
+
+## Cleaning in the wizard
+
+It's a common issue to have blank metadata and blank lines at the top of spreadsheets
+
+<img class="center" src="img/session06/beds-data-wizard-2.png" alt="Screenshot of the beds_data.csv data in the import wizard with the Title and Source rows highlighted." />
+
+## Skip rows
+
+<img class="center" src="img/session06/beds-data-wizard-skip.PNG" alt="Screenshot of where to skip rows in the import wizard. In this case skip 3 rows so the column headers appear at the top of the preview."/>
+
+Move the cursor to another area to update the view immediately.
+
+## Dates may be a problem
+
+<img class="center" src="img/session06/beds-data-wizard-date.png" alt="Screenshot again with one more thing to fix: Click on the drop down menu by the column called date."/>
+
+## Default US dates on UK data
+
+<img class="center" src="img/session06/beds-data-date-wizard.PNG" alt="Screenshot of a wizard pop up to change the date format to %d/%m/%Y."/>
+
+
+## Final data
+
+```{r}
+beds_data
+```
+
+## End session

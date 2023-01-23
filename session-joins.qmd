@@ -1,0 +1,183 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - joins"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false
+---
+
+```{r}
+#| label: "libs"
+#| include: false
+#| eval: true
+#| echo: false
+library(dplyr)
+library(readr)
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: "load-data"
+tb_cases <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/tb_cases.csv"))
+tb_pop <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/tb_pop.csv"))
+tb_new_table <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/tb_new_table.csv"))
+
+```
+
+## Relational data
+
+It's rare to find all the data you need for an analysis in a single table.
+
+Typically, you'll have to link two (or more) tables together by matching on common "key" variable(s).
+
+We use joins in SQL or R, (V, H or X) LOOKUPs in Excel
+
+## Joins
+
+All the joins in SQL are available in R and a couple more called `filtering joins` which have the same concept as `EXISTS` used in the `WHERE` clause in SQL.
+
+## left_join()
+
+Keep structure of table `x`
+
+…and match to observations in table `y`
+
+"key" variable (common to both tables)
+
+```{r}
+x |> 
+  left_join(y, by = "id")
+```
+
+<img class="center" src="img/session08/left-join.gif" alt="Moving gif that shows two tables and their merge with the data on the left 1, 2 and 3 being added to from the right where it matches" width="40%"/>
+
+source: https://github.com/gadenbuie/tidyexplain
+
+## Have a go!
+
+We're going to join two tables one with cases of tuberculosis by country, one with population by country.
+
+Import the files:
+
+`tb_cases.csv`
+`tb_pop.csv`
+`tb_new_table.csv`
+
+
+```{r}
+#| eval: true
+#| echo: false
+countdown::countdown(minutes = 8,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Join 2 tables together
+
+When columns have the same name R resolves this conflict by adding `.x` and `.y` to the end of the column name
+
+```{r}
+#| eval: true
+tb_cases |> 
+  left_join(tb_pop, by = "country")
+```
+
+## Join on multiple columns
+
+Explicitly joining on more than one column requires the use of a vector
+
+```{r }
+tb_cases |> 
+  left_join(tb_pop, by = c("country", "year"))
+```
+
+## Vectors
+
+You can create a vector with function: `c()` for concatenate/combine
+
+```{r}
+c("beds", "staff", "patients")
+```
+
+## Default combine
+
+{dplyr} joins can occur automatically
+
+```{r}
+#| eval = TRUE
+tb_cases |> 
+  left_join(tb_pop)
+```
+
+## Joining with different names
+
+If two tables have different names for same variable:
+
+```{r}
+tb_cases |> 
+  left_join(tb_new_table, by = c("country" = "Place",
+                                 "year" = "Yr"))
+```
+
+## semi_join()
+
+Semi-joins retain the data on the left if it matches the right, but drops the right (so is not like an inner join that keeps both sides).
+
+All rows from `x` where there are matching values in `y`, keeping just columns from `x`. 
+
+<img class="center" src="img/session08/semi-join.gif" alt="Moving gif showing the data from the left table being kept if it matches the right but everything is dropped from the right" width="40%"/>
+
+## Use Case - hospital Covid tests
+
+Finding hospital patients who have had a Covid-19 test but only bring back the information on the hospital, nothing about the test.
+
+Join to the `tb_new_table` and bring back only those records where the column `FirstLetter` is 'A' but drop the data from `tb_new_table.`
+
+```{r}
+#| eval = TRUE
+tb_cases |> 
+  semi_join(tb_new_table |> 
+              filter(FirstLetter == "A"), by = c("country" = "Place",
+                                                 "year" = "Yr"))
+```
+
+## anti_join()
+
+All rows from `x` where there are not matching values in `y`, keeping just columns from `x`.
+
+<img class="center" src="img/session08/anti-join.gif" alt="Moving gif that only retrains from the left table what doesn't match on the right" width="40%"/>
+
+## Use Case - text mining stop words
+
+In text mining, exclude 'stop words' (but, and, or) which are kept in a separate table for reference.
+
+Join to the `tb_new_table` and exclude only those records where the column `FirstLetter` is 'A' .
+
+```{r}
+#| eval = TRUE
+tb_cases |> 
+  anti_join(tb_new_table |> 
+              filter(FirstLetter == "A"), by = c("country" = "Place",
+                                                 "year" = "Yr"))
+```
+
+## End session

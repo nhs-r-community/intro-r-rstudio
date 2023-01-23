@@ -1,0 +1,134 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - quarto reporting"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+    echo: true
+    eval: true
+---
+
+```{r}
+#| echo: false
+#| label: "libs"
+#| include: false
+library(countdown)
+```
+
+
+## R Scripts v RMarkdown/Quarto
+
+::: incremental
+- Scripts are very quick files of code with comments but RMarkdown and Quarto mix written text with code.
+
+- Quarto is a newer version of RMarkdown (2022) and is very similar for R users
+
+- Quarto allows the possibility of working with colleagues who use other languages like Python
+:::
+
+## Open a new Quarto file
+
+<img src="img/session-quarto/open-file-quarto.png" alt="Screenshot of File/New File/Quarto Document..." class="center"/>
+
+## Render
+
+Will open up a wizard to force the file to be saved.
+
+As Quarto produces an output file it must have rights to save to the location.
+
+
+## Have a go!
+
+1. Change the title and then render
+1. Go to the bottom of the existing code and in Visual mode create a header `Introduction code` and add a small table
+1. Change the view to Source from Visual
+1. Click on the wheel icon next to Render and in that menu select Preview in `View Pane`
+1. Render the qmd
+
+
+```{r}
+#| eval: false
+countdown::countdown(minutes = 8,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## New code chunks
+
+The default is for R chunks in R Studio but chunks can also be Python
+
+Create a new R chunk either with the green button with a <img src="img/icons/notebook-insert-chunk.png" alt="A picture of the green square with c button from RStudio to create a new chunk"/> or using `Ctrl+Alt+i`
+
+```{r}
+#| echo: fenced
+
+37+9
+
+```
+
+## Chunk options
+
+Each `chunk` is a part of a longer script and needs to be run in order to render.
+
+- **Switch off chunks**
+To stop code running in any of the chunks code:
+
+```{r}
+#| echo: fenced
+#| eval: false
+
+This will not run
+```
+
+:::incremental
+- **Showing your code**
+To include code in a report or presentation use `#| echo: true`
+:::
+
+## Have a go!
+
+Let's try to show code in a report:
+
+1. In the chunk you created for the SQL connection type at the top of the chunk `#| echo: true`
+1. Render the script to see what that looks like in a report output.
+1. Return to SQL connection string chunk and add `#| label = "arrange"`. 
+
+```{r}
+#| echo: false
+countdown::countdown(minutes = 7,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Table of contents
+
+- A table of contents is built automatically in RStudio when headers are used.
+
+:::incremental
+- Accessed through the Outline icon in the top right of the Editor pane.
+
+- Code chunks and headers together can be navigated from the bottom left of the Editor pane.
+:::
+
+## End session

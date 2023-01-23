@@ -1,0 +1,64 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - {janitor} clean data"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false    
+---
+
+
+## Specific packages to clean data
+
+Packages like {janitor} have functions to do a lot of the cleaning required for data like:
+
+:::incremental
+- Remove blank rows and columns
+- Change Excel serial dates to read dates
+- Standardise column names and remove spaces
+:::
+
+## Example of cleaning column headers
+
+```{r}
+library(readr)
+by_ethnicity <- read_csv("https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv")
+```
+
+## Changing the column names
+
+Removes spaces and changes the `%` to a word
+
+```{r}
+library(janitor)
+
+by_ethnicity |> 
+  clean_names()
+```
+
+## Example of removing blank rows and columns
+
+```{r}
+# Add in blank row and column
+
+library(dplyr)
+library(janitor)
+by_ethnicity_blank <- by_ethnicity |> 
+  mutate(blank_column = NA) |> # Blank column
+  add_row() # Blank row
+
+by_ethnicity_blank |> 
+  remove_empty(which = c("rows", "cols"))
+```
+
+## End session

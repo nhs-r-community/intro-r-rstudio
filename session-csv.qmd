@@ -1,0 +1,79 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - import csv"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false    
+---
+
+
+## Getting data into to R
+
+There are packages to import all types of data and RStudio has wizards for just a few of the possibilities.
+
+We are going to first import a csv using the wizard but also get the code to copy to scripts for reproduciblity.
+
+## Import wizard
+
+We will use the "Import Dataset" button (but you can also click on the file itself):
+
+<img src="img/session03/import-screenshot.PNG" alt="Screenshot of RStudio with Import Dataset drop down button highlighted as well as the file capacity_ae.csv in the Files tab." class="center" width="80%"/>
+
+## Two ways of importing csv
+
+The base R doesn't use any packages but imports a `data frame` in R whereas {readr} is built on the base R and creates a neater `tibble`
+
+<img src="img/session03/drop-down-import.PNG" alt="Screenshot of the drop down menu when Import Dataset is selected in RStudio. From Text (readr)... is highlighted." class="center" width="60%"/>
+
+## tibble = data frame
+
+`tibble` is synonymous with `data frame` but acts differently
+
+> A tibble... is a modern reimagining of the data.frame...
+>
+> Tibbles are data.frames that are **lazy and surly**: they do less (i.e. they don't change variable names or types, and don't do partial matching) and **complain more** (e.g. when a variable does not exist).
+>
+> This forces you to confront problems earlier, typically leading to cleaner, more expressive code.
+
+https://tibble.tidyverse.org/)
+
+## Find the file
+
+Locate the file `capacity_ae.csv`
+
+<img src="img/session03/wizard.PNG" alt="Screenshot of the blank import dataset wizard with the Browse... to locate files highlighted."/>
+
+## Data preview
+
+When the file is located {readr} is used automatically and the data preview populates
+
+<img src="img/session03/capacity-ae-preview.PNG" alt="Screenshot of Import Text wizard with file selected and data in the preview."/>
+
+## Getting the code for later
+
+Whilst it's possible just to select import, RStudio gives you the option to copy the code:
+
+<img src="img/session03/copy-wizard-code.PNG" alt="Screenshot of the code highlighted from the Import Wizard in RStudio."/>
+
+# Running the code
+
+In the editor, once copied from the wizard or shared in a script:
+
+```{r}
+library(readr) # Good practice to put this at the top of a script
+
+capacity_ae <- read_csv("capacity_ae.csv")
+```
+
+## End session

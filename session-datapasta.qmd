@@ -1,0 +1,81 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - import data {datapasta}"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+    eval: true
+    echo: true
+---
+
+
+```{r}
+#| echo: false
+#| label: "libs"
+#| include: false
+library(countdown)
+```
+
+## Text data
+
+It can happen where someone emails a small table that you need in R.
+
+There is a way to copy it to create a dataset directly in R using [{datapasta}](https://milesmcbain.github.io/datapasta/).
+
+As an addin it only needs to be loaded and run once:
+
+```{r}
+
+library(datapasta)
+```
+
+## Add ins
+
+<img src="img/session03/datapasta-dropdown.PNG" alt="Screenshot of the datapasta list in the drop down menu under Help."/>
+
+## Have a go!
+
+1.  Using a small table from the [NHS Workforce statistics statistics](https://www.ethnicity-facts-figures.service.gov.uk/workforce-and-business/workforce-diversity/nhs-workforce/latest#:~:text=Main%20facts%20and%20figures%20around%201.3%20million%20people,22.1%25%20were%20from%20all%20other%20ethnic%20groups%20combined) open the [csv file for number and percentage of NHS staff by ethnicity](https://www.ethnicity-facts-figures.service.gov.uk/workforce-and-business/workforce-diversity/nhs-workforce/latest/downloads/by-ethnicity.csv) 1.Highlight the table, including the column names and copy (Ctrl+C)
+2.  Select the `Addins/Paste as tribble`
+3.  Run the code using the `Run` button or Ctrl+Enter anywhere in the code
+
+```{r}
+#| echo: false
+#| eval: true
+countdown::countdown(minutes = 10,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## A data frame in code
+
+```{r}
+tibble::tribble(
+  ~Ethnicity, ~`%`, ~Headcount, ~`%.working.age.population.(2011)`,
+     "Asian",   10,     118396,                                7.2,
+     "Black",  6.1,      72321,                                3.4,
+   "Chinese",  0.6,       6536,                                0.9,
+     "Mixed",  1.7,      20607,                                1.8,
+     "White", 79.2,     934544,                               85.6,
+     "Other",  2.3,      27169,                                1.1
+  )
+
+```
+
+
+## End session

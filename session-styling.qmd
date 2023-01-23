@@ -1,0 +1,104 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - styling code"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false
+---
+
+## Code style
+
+```{r}
+#| echo: false 
+beds_data <- read_csv("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv", 
+    col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+    skip = 3)
+```
+
+An updated version of R4DS now includs a section on [code style](https://r4ds.hadley.nz/workflow-style.html) 
+
+It particularly mentions the package {styler} which, when run becomes an addin to RStudio, and automatically applies the [tidyverse style](https://style.tidyverse.org/) to code
+
+```{r}
+install.packages("styler")
+```
+
+## Have a go - look at automatic indentation
+
+RStudio also automatically indents according to the function bracket positions
+
+- Type `beds_data` then press return, where does the cursor go?
+- Type `beds_data |> ` then return, where does the cursor go now?
+- Type `beds_data |> select(org_name, org_code)` and put the select on a new line, then put `org_code` onto a new line.
+- Copy the following to the Editor:
+
+```{r}
+beds_data |> 
+select(org_code,
+everything)
+```
+
+highlight the three lines and use the keyboard shortcut `Ctrl+i`, what happens?
+
+```{r}
+#| echo: false
+#| eval: true
+countdown::countdown(minutes = 8,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## Space code
+
+Using spaces helps with readability
+
+The code below will run as R doesn't need spaces to work:
+
+```{r}
+beds_data|>group_by(org_name)|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE))|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
+```
+
+Putting the spaces in can be effort after it's been written
+
+## Have a go - {styler}
+
+Firstly copy the code without spaces to the document
+
+```{r}
+beds_data|>group_by(org_name)|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE))|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
+```
+
+With {styler} loaded `library(styler)` go to the Add in drop down menu and select `Style Active File`
+
+```{r}
+#| echo: false
+#| eval: true
+countdown::countdown(minutes = 7,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+## End session

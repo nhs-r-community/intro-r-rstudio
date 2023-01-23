@@ -1,0 +1,161 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - R and R studio"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: true   
+---
+
+## R vs. RStudio
+
+R is both the name of a programming language and a program
+
+<img src="img/session01/race_car.PNG" alt="A photo of a racing type car with the safety bars on show as it has no roof"/>
+
+## RStudio program
+
+RStudio is a software application with tools to
+
+improve your programming experience
+
+<img src="img/session01/roberto-nickson-unsplash.PNG" alt="A photo of a modern car dashboard"/>
+
+::: notes
+Analogy from the book Modern Dive: [www.moderndive.com](https://moderndive.com/)
+
+Other IDEs can be used like Visual Studio Code
+
+RStudio, the company is now Posit
+:::
+
+## RStudio features  
+
+-   RStudio open an R session - no longer have to think of them separately\
+
+::: incremental
+-   RStudio open an R session - no longer have to think of them separately\
+-   All clickable areas have underlying code to automate in scripts
+-   Works with other languages - not just R
+-   Very easy to set up
+-   New features are always added...
+:::
+
+## Open RStudio
+
+Let's open an R session
+
+::: columns
+::: {.column width="40%"}
+The Console is the R session.
+
+You can code directly in the console...
+
+```{r}
+pi*2 
+37/12 
+```
+:::
+
+::: {.column width="60%"}
+<img src="img/session01/rstudio_console.PNG" alt="Screenshot of the RStudio console."/>
+:::
+:::
+
+## Introducing the Editor
+
+::: columns
+::: {.column width="50%"}
+If you don't see the Editor pane, click top right button
+
+And choose `R Script` from the drop down.
+
+Keyboard shortcuts:\
+`Ctrl + Shift + N`\
+The cloud `Ctrl + Shift + Alt + N`
+:::
+
+::: {.column width="50%"}
+<img src="img/session01/new_file.PNG" alt="Screenshot of the menu from the icon of a white page with a green circle and a white cross"/>
+:::
+:::
+
+## Editor features
+
+::: columns
+::: {.column width="50%"}
+-   The Editor is a text editor\
+-   Text is coloured\
+    (the console is one colour)\
+-   Autocomplete
+
+Keyboard shortcuts:\
+`Ctrl + Z` </kbd> undoes *but*\
+`Ctrl + Shift + Z` to redo\
+`Ctrl + Enter` runs the code
+:::
+
+::: {.column width="50%"}
+<img src="img/session01/editor.PNG" alt="Screenshot of RStudio with 4 panels, the editor on the upper left and console in bottom left have the words to highlight their positions."/>
+:::
+:::
+
+::: notes
+Show in RStudio `Tools/Keyboard` Shortcut help for existing shortcuts and where to alter
+:::
+
+## Commenting
+
+Comment code with a hash \#
+
+```{r}
+# this was a bad idea
+```
+
+Comment frequently, at least in the beginning
+
+Keyboard shortcut:\
+`Ctrl+C` for commenting and uncommenting
+
+## Tools \> Options \> workspace
+
+[Reasons why this is default](https://community.rstudio.com/t/defaults-of-saving-and-restoring-workspace/939)
+
+<img src="img/session01/global_options.PNG" alt="Screenshot of the Tools/Global Options wizard" class="center"/>
+
+## Tools \> Options \> colours
+
+Accessibility and comfort for all
+
+<img src="img/session01/appearance.PNG" alt="Screenshot of the Appearance tab from Tools/Global Options wizard" class="center"/>
+
+::: notes
+Show the dark mode, SQL for familiar function colours and Solarized for glare reduction.
+:::
+
+## Packages
+
+::: columns
+::: {.column width="50%"}
+### R packages are like apps for your phone:
+
+Extend the capabilities of the basic or "base R"\
+with extra functions, datasets, code examples & documentation.
+:::
+
+::: {.column width="50%"}
+<img src="img/session01/app_analogy.PNG" alt="Simple flowchart of packages installation to loading and how that matches the download app to open app on a mobile phone" class="center"/>
+:::
+:::
+
+## End Session

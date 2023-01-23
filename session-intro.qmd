@@ -1,0 +1,65 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Introduction"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: false
+---
+
+## Agenda - morning
+
+Using R Studio
+
+Importing data with csv and {datapasta}
+
+Opening quarto and adding in SQL/UDAL connections
+
+Naming objects
+
+::: {.fragment .fade-in}
+--------- Lunch (1 hour) -----------
+:::
+
+## Agenda - afternoon
+
+Data wrangling with {dplyr}, {stringr} and {tidyr}
+
+Joining datasets
+
+What does this function do?
+
+Ongoing learning resources
+
+::: {.fragment .fade-in}
+--------- Finish about 430-5pm ---------
+:::
+
+## Course Aims
+
+::: incremental
+-   To introduce RStudio as an IDE (integrated development environment)
+-   Introduce familiar concepts of data manipulation in R
+-   Practice these concepts and bring them together in a Quarto report
+:::
+
+## Reasons to use R
+
+::: incremental
+-   [Collaboration](https://github.com/nhs-r-community)
+-   [Open coding](https://www.gov.uk/government/publications/better-broader-safer-using-health-data-for-research-and-analysis/better-broader-safer-using-health-data-for-research-and-analysis)
+-   [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/)
+-   [Community](https://nhsrcommunity.slack.com)
+:::
+
+## End session

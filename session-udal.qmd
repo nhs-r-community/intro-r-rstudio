@@ -1,0 +1,141 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - SQL connections"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false
+---
+
+## Section - Data import
+
+```{r}
+#| echo: false
+#| label: "libs"
+#| include: false
+library(countdown)
+```
+
+## SQL connections
+
+- A great number of data sources are via SQL servers
+
+::: incremental
+- R and SQL process in different architecture (SQL is often more powerful depending on the computer processing speed)
+
+- Packages are available to either use whole SQL scripts or use R functions to process data in the SQL environment
+:::
+
+## Connection packages
+
+Firstly the connection needs to be set up using 2 libraries:
+
+```{r}
+library(DBI)
+library(odbc)
+```
+
+
+
+!!! **These have not been pre-loaded to the Posit Cloud to prevent connection to an insecure area** !!!
+
+## Connection string
+
+Three areas are specific to the user and database
+
+```{r}
+#| code-line-numbers: "4|5|6"
+
+con_udal <- DBI::dbConnect(
+  drv = odbc::odbc(),
+  driver = "ODBC Driver 17 for SQL Server",
+  server = serv,
+  database = db,
+  UID = user,
+  authentication = "ActiveDirectoryInteractive"
+)
+```
+
+:::notes
+Debatable how much needs to be hidden as this is authenticated by the Active Directory but for reference.
+:::
+
+## Save important credentials
+
+The {usethis} package has many useful functions including:
+
+```{r}
+library(usethis)
+usethis::edit_r_environ()
+```
+
+## Amending .Renviron 
+
+::: columns
+::: {.column width="60%"}
+1. Copy the following directly to `.Renviron` with no spaces 
+1. Amend to your specific details in the quotes
+1. Save the `.Renviron` file `Ctrl+S` and Restart RStudio using `Ctrl+Shift+F10` or `Session/Restart R`
+
+:::
+::: {.column width="40%"}
+
+```{r}
+server="server_name"
+db="db_name"
+user="name.surname@email.uk"
+
+```
+
+:::
+:::
+
+## Connect in the Quarto document
+
+1. Create a new R chunk with <img src="img/icons/notebook-insert-chunk.png" alt="A picture of the green square with c button from RStudio to create a new chunk"/> or using `Ctrl+Alt+i`
+1. Copy the code below
+1. Run the code chunk using the green arrow in top right
+
+```{r connection}
+con_udal <- DBI::dbConnect(
+  drv = odbc::odbc(),
+  driver = "ODBC Driver 17 for SQL Server",
+  server = serv,
+  database = db,
+  UID = user,
+  authentication = "ActiveDirectoryInteractive"
+)
+```
+
+## SQL code in R
+
+A single SQL script can be run within R.
+
+Each temporary table needs its own script or combine in a CTE (common table expression).
+
+```{r}
+df_one <- dbGetQuery(
+  conn = con_udal,
+  statement = "
+
+  SELECT  appointment_date,
+          appointment_status,
+          HCP_Type,
+          Count_Of_Appointments
+  FROM  Schema_Name.Table_Name
+  WHERE Appointment_Date >= '2022-11-25'
+  "
+  )
+```
+
+## End session

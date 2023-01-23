@@ -1,0 +1,81 @@
+---
+title: "Introduction to R and Rstudio"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session  - {stringr}"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute:
+  echo: true
+  eval: false
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: "libs"
+library(readr)
+library(dplyr)
+library(stringr)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+#| label: "load-data"
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), 
+                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
+                      skip = 3)
+```
+
+## Wildcards searches using {stringr}
+
+A natural step to searching for long strings is to consider searching by key words
+
+```{r}
+library(dplyr)
+library(stringr)
+beds_data |> 
+  filter(str_detect(string = org_name,
+                    pattern = "Bradford",
+                    negate = FALSE
+  ))
+
+```
+
+See what happens when negate is changed to `TRUE`
+
+## Adding trailing spaces
+
+Quite often data has trailing spaces but importing the csv files, interestingly, corrects this!
+
+Creating trailing spaces in R
+
+```{r}
+#| eval: true
+beds_data |> 
+  mutate(new_org_name = paste(org_name, "  "),
+         org_name_number = nchar(org_name),
+         new_org_name_number = nchar(new_org_name))
+
+```
+
+## Removing trailing spaces
+
+```{r}
+#| eval: true
+beds_data |> 
+  mutate(new_org_name = paste(org_name, "  ")) |> 
+  mutate(returned_org_name = str_trim(new_org_name, "both"))
+
+```
+
+## End session
