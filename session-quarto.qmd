@@ -56,7 +56,8 @@ As Quarto produces an output file it must have rights to save to the location.
 
 
 ```{r}
-#| eval: false
+#| eval: true
+#| echo: false
 countdown::countdown(minutes = 8,
                      color_border = "#005EB8",
                      color_text = "#005EB8",
