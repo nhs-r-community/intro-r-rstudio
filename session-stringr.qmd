@@ -17,6 +17,7 @@ execute:
   eval: false
 ---
 
+## Wildcards searches using {stringr}
 
 ```{r}
 #| echo: false
@@ -35,8 +36,6 @@ beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/int
                       col_types = cols(date = col_date(format = "%d/%m/%Y")), 
                       skip = 3)
 ```
-
-## Wildcards searches using {stringr}
 
 A natural step to searching for long strings is to consider searching by key words
 

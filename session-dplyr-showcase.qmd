@@ -17,6 +17,7 @@ execute:
   eval: true
 ---
 
+## More {dplyr}
 
 ```{r}
 #| echo: false
@@ -33,8 +34,6 @@ beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/int
                       col_types = cols(date = col_date(format = "%d/%m/%Y")), 
                       skip = 3)
 ```
-
-## More {dplyr}
 
 The following are useful functions and some examples of their capabilities for manipulating data.
 

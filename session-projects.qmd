@@ -88,9 +88,7 @@ Step 4
 3.  Create a new project, this time choosing the selection `Shiny Application`. What files are created in the new folder other than the `.Rproj`?
 4.  Using the Project menu move between the two projects.
 
-Extra:
-
-Delete one of the `.Rproj` files and then try to select it from the menu. What happens?
+Extra: Delete one of the `.Rproj` files and then try to select it from the menu. What happens?
 
 ```{r}
 countdown::countdown(minutes = 10,

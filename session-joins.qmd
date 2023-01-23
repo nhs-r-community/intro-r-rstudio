@@ -17,6 +17,8 @@ execute:
   eval: false
 ---
 
+## Relational data
+
 ```{r}
 #| label: "libs"
 #| include: false
@@ -37,8 +39,6 @@ tb_new_table <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/
 
 ```
 
-## Relational data
-
 It's rare to find all the data you need for an analysis in a single table.
 
 Typically, you'll have to link two (or more) tables together by matching on common "key" variable(s).
@@ -51,9 +51,11 @@ All the joins in SQL are available in R and a couple more called `filtering join
 
 ## left_join()
 
+::: columns
+::: {.column width="40%"}
 Keep structure of table `x`
 
-…and match to observations in table `y`
+...and match to observations in table `y`
 
 "key" variable (common to both tables)
 
@@ -61,10 +63,12 @@ Keep structure of table `x`
 x |> 
   left_join(y, by = "id")
 ```
+:::
 
-<img class="center" src="img/session08/left-join.gif" alt="Moving gif that shows two tables and their merge with the data on the left 1, 2 and 3 being added to from the right where it matches" width="40%"/>
-
-source: https://github.com/gadenbuie/tidyexplain
+::: {.column width="60%"}
+[![Moving gif that shows two tables and their merge with the data on the left 1, 2 and 3 being added to from the right where it matches](img/session08/left-join.gif){.center}](https://github.com/gadenbuie/tidyexplain)
+:::
+:::
 
 ## Have a go!
 
@@ -72,10 +76,7 @@ We're going to join two tables one with cases of tuberculosis by country, one wi
 
 Import the files:
 
-`tb_cases.csv`
-`tb_pop.csv`
-`tb_new_table.csv`
-
+`tb_cases.csv` `tb_pop.csv` `tb_new_table.csv`
 
 ```{r}
 #| eval: true
@@ -140,11 +141,17 @@ tb_cases |>
 
 ## semi_join()
 
+::: columns
+::: {.column width="40%"}
 Semi-joins retain the data on the left if it matches the right, but drops the right (so is not like an inner join that keeps both sides).
 
-All rows from `x` where there are matching values in `y`, keeping just columns from `x`. 
+All rows from `x` where there are matching values in `y`, keeping just columns from `x`.
+:::
 
-<img class="center" src="img/session08/semi-join.gif" alt="Moving gif showing the data from the left table being kept if it matches the right but everything is dropped from the right" width="40%"/>
+::: {.column width="60%"}
+[![Moving gif showing the data from the left table being kept if it matches the right but everything is dropped from the right](img/session08/semi-join.gif){.center alt="Moving gif showing the data from the left table being kept if it matches the right but everything is dropped from the right" width="60%"}](https://github.com/gadenbuie/tidyexplain)
+:::
+:::
 
 ## Use Case - hospital Covid tests
 
@@ -162,9 +169,15 @@ tb_cases |>
 
 ## anti_join()
 
+::: columns
+::: {.column width="40%"}
 All rows from `x` where there are not matching values in `y`, keeping just columns from `x`.
+:::
 
-<img class="center" src="img/session08/anti-join.gif" alt="Moving gif that only retrains from the left table what doesn't match on the right" width="40%"/>
+::: {.column width="60%"}
+[![Moving gif that only retrains from the left table what doesn't match on the right](img/session08/anti-join.gif){.center alt="Moving gif that only retrains from the left table what doesn't match on the right"}](https://github.com/gadenbuie/tidyexplain)
+:::
+:::
 
 ## Use Case - text mining stop words
 

@@ -373,7 +373,9 @@ beds_data |>
             )
 ```
 
-## Break
+## Break? 
+
+Option to take this break before an exercise of after
 
 ```{r}
 #| echo: false

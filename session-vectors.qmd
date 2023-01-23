@@ -17,7 +17,7 @@ execute:
   eval: false
 ---
 
-## Section - Data manipulation 
+## Vectors
 
 ```{r}
 #| echo: false
@@ -36,8 +36,6 @@ beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/int
                       col_types = cols(date = col_date(format = "%d/%m/%Y")), 
                       skip = 3)
 ```
-
-## Vectors
 
 Are a type of data format in R but may be familiar
 

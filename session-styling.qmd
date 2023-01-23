@@ -43,14 +43,18 @@ It particularly mentions the package {styler} which, when run becomes an addin t
 install.packages("styler")
 ```
 
-## Have a go - look at automatic indentation
+## Indentation
 
 RStudio also automatically indents according to the function bracket positions
 
-- Type `beds_data` then press return, where does the cursor go?
-- Type `beds_data |> ` then return, where does the cursor go now?
-- Type `beds_data |> select(org_name, org_code)` and put the select on a new line, then put `org_code` onto a new line.
-- Copy the following to the Editor:
+Highlighting line of code using the keyboard shortcut `Ctrl+i` applies indents
+
+## Have a go - look at automatic indentation
+
+- `beds_data` then press return, where does the cursor go?
+- `beds_data |> ` then return, where does the cursor go now?
+- `beds_data |> select(org_name, org_code)` and put the select on a new line, then put `org_code` onto a new line.
+- Copy the following to the Editor and indent using `Ctrl+i`:
 
 ```{r}
 beds_data |> 
@@ -58,7 +62,7 @@ select(org_code,
 everything)
 ```
 
-highlight the three lines and use the keyboard shortcut `Ctrl+i`, what happens?
+
 
 ```{r}
 #| echo: false
@@ -93,13 +97,13 @@ Firstly copy the code without spaces to the document
 ```{r}
 beds_data|>group_by(org_name)|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE))|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
 ```
-
+  
 With {styler} loaded `library(styler)` go to the Add in drop down menu and select `Style Active File`
 
 ```{r}
 #| echo: false
 #| eval: true
-countdown::countdown(minutes = 7,
+countdown::countdown(minutes = 5,
                      color_border = "#005EB8",
                      color_text = "#005EB8",
                      color_running_text = "white",

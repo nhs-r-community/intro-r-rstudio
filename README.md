@@ -34,7 +34,7 @@ order.
 ## Manipulating data
 [Using {janitor} to remove blank rows/columns and tidy column names](https://nhs-r-community.github.io/intro-r-rstudio/session-janitor.html#/title-slide)  
 [{dplyr} data wrangling with a selection of main functions](https://nhs-r-community.github.io/intro-r-rstudio/session-dplyr-wrangling.html#/title-slide)  
-[{dplyr} showcase more functions](https://nhs-r-community.github.io/intro-r-rstudio/session-dplyr-showcase.html#/title-slide)
+[{dplyr} showcase more functions](https://nhs-r-community.github.io/intro-r-rstudio/session-dplyr-showcase.html#/title-slide)  
 [Using {stringr} for cleaning with strings (for example % wildcard searches)](https://nhs-r-community.github.io/intro-r-rstudio/session-stringr.html#/title-slide)  
 [Joining data together](https://nhs-r-community.github.io/intro-r-rstudio/session-joins.html#/title-slide)  
 
@@ -43,7 +43,7 @@ order.
 
 ## Help section
 [Finding help on functions using RStudio and the internet](https://nhs-r-community.github.io/intro_r/05-workshop_functions.html#1)  
-[Ongoing learning resources](https://nhs-r-community.github.io/intro_r/09-workshop-learning.html#13)  
+[Ongoing learning resources](https://nhs-r-community.github.io/intro_r/09-workshop-learning.html#1)  
 
 # Spotted a mistake?
 Please let us know if there are mistakes or improvements by creating an 

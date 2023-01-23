@@ -1705,23 +1705,27 @@ Zoë Turner
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;styler&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="have-a-go---look-at-automatic-indentation" class="slide level2"><h2>Have a go - look at automatic indentation</h2>
+</section><section id="indentation" class="slide level2"><h2>Indentation</h2>
 <p>RStudio also automatically indents according to the function bracket positions</p>
+<p>Highlighting line of code using the keyboard shortcut <code>Ctrl+i</code> applies indents</p>
+</section><section id="have-a-go---look-at-automatic-indentation" class="slide level2"><h2>Have a go - look at automatic indentation</h2>
 <ul>
-<li>Type <code>beds_data</code> then press return, where does the cursor go?</li>
-<li>Type <code>beds_data |&gt;</code> then return, where does the cursor go now?</li>
-<li>Type <code>beds_data |&gt; select(org_name, org_code)</code> and put the select on a new line, then put <code>org_code</code> onto a new line.</li>
-<li>Copy the following to the Editor:</li>
+<li>
+<code>beds_data</code> then press return, where does the cursor go?</li>
+<li>
+<code>beds_data |&gt;</code> then return, where does the cursor go now?</li>
+<li>
+<code>beds_data |&gt; select(org_name, org_code)</code> and put the select on a new line, then put <code>org_code</code> onto a new line.</li>
+<li>Copy the following to the Editor and indent using <code>Ctrl+i</code>:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>beds_data <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">select</span>(org_code,</span>
 <span id="cb2-3"><a href="#cb2-3"></a>everything)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>highlight the three lines and use the keyboard shortcut <code>Ctrl+i</code>, what happens?</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_bcd46277" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_6b8253bb" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1744,11 +1748,11 @@ Zoë Turner
 <p>With {styler} loaded <code><a href="https://github.com/r-lib/styler">library(styler)</a></code> go to the Add in drop down menu and select <code>Style Active File</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_0924822b" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_2d412d86" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
-<code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>

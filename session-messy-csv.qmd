@@ -17,6 +17,8 @@ execute:
     eval: true
 ---
 
+## Importing a csv that needs tidying
+
 ```{r}
 #| label: "libs"
 #| include: false
@@ -29,8 +31,6 @@ beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/int
                       col_types = cols(date = col_date(format = "%d/%m/%Y")), 
                       skip = 3)
 ```
-
-## Importing a csv that needs tidying
 
 ### Exploring Mental Health (MH) Inpatient Capacity
 
