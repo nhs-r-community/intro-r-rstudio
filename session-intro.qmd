@@ -21,9 +21,17 @@ execute:
 
 Using R Studio
 
-Importing data with csv and {datapasta}
+What are packages
 
-Opening quarto and adding in SQL/UDAL connections
+Using Projects
+
+Opening Quarto 
+
+--------- Break -----------
+
+Importing data
+
+Import features of coding
 
 Naming objects
 
@@ -33,9 +41,17 @@ Naming objects
 
 ## Agenda - afternoon
 
-Data wrangling with {dplyr}, {stringr} and {tidyr}
+How to style your R code
+
+Cleaning data using {janitor}
+
+Manipulating data using {dplyr}
+
+Using {stringr} for strings 
 
 Joining datasets
+
+--------- Break -----------
 
 What does this function do?
 
