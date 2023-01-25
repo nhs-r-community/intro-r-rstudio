@@ -22,7 +22,7 @@ execute:
 
 There are packages to import all types of data and RStudio has wizards for just a few of the possibilities.
 
-We are going to first import a csv using the wizard but also get the code to copy to scripts for reproduciblity.
+We are going to first import a csv using the wizard but also get the code to copy to scripts for reproducibility.
 
 ## Import wizard
 

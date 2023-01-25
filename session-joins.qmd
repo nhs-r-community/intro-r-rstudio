@@ -76,7 +76,9 @@ We're going to join two tables one with cases of tuberculosis by country, one wi
 
 Import the files:
 
-`tb_cases.csv` `tb_pop.csv` `tb_new_table.csv`
+`tb_cases.csv`  
+`tb_pop.csv`  
+`tb_new_table.csv`
 
 ```{r}
 #| eval: true

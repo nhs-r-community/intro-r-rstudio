@@ -62,8 +62,8 @@ Tidyverse functions work best with tidy data:
 - {dplyr} is a language for data manipulation  
 
 :::incremental
-- Most wrangling puzzles can be solved with knowledge of just a few dplyr verbs or functions 
-- Many of the concepts of these functions exist in SQL but dplyr (and other packages) can extend this further
+- Most wrangling puzzles can be solved with knowledge of just a few {dplyr} verbs or functions 
+- Many of the concepts of these functions exist in SQL but {dplyr} (and other packages) can extend this further
 :::
 
 ## 6 functions/verbs to start with
@@ -102,7 +102,7 @@ The potato is the object in R terms and the steps are verbs or functions
 
 ::: columns
 ::: {.column width="50%"}
-Take a `potato` then
+Take a `potato` then  
 `peel` then  
 `slice` into medium sized pieces then  
 `boil` for 25 minutes then  
@@ -117,6 +117,8 @@ Take a `potato` then
 `mash()`
 :::
 :::
+
+the `|>` can be replaced with the word 'then' in this recipe scenario
 
 ## Pipe
 
@@ -159,8 +161,8 @@ beds_data |>
 ## Q2. Which 2 organisations provided the highest number of MH beds in September 2018?
 
 ::: incremental
-- We'll use `arrange()` as before
-- But we require only observations with this date
+- We'll use `arrange()` as before to get the "highest number"
+- But we require only observations with the date "September 2018"
 :::
 
 ## filter()
@@ -174,8 +176,8 @@ beds_data |>
   filter(date == "2018-09-01") 
 ```
 
-
-## A negative test of equality
+::: {.fragment .fade-in}
+### A negative test of equality
 
 To exclude and test where the expression is NOT equal `!=`
 
@@ -184,19 +186,23 @@ To exclude and test where the expression is NOT equal `!=`
 beds_data |> 
   filter(date != "2018-09-01") 
 ```
+:::
+
 
 ## Ordered and filtered
+
+`filter()` first to reduce the number of rows to apply the next code to
 
 ```{r}
 #| code-line-numbers: "2|3"
 beds_data  |> 
-  arrange(desc(beds_av)) |> 
-  filter(date == "2018-09-01") 
+  filter(date == "2018-09-01") |> 
+  arrange(desc(beds_av)) 
 ```
 
 ## Find the top 2 organisations
 
-This isn't a key function but useful
+This isn't a key function but useful and there are many other functions for `slice...`
 
 ```{r}
 #| code-line-numbers: "4"
@@ -206,11 +212,11 @@ beds_data  |>
   slice_head(n = 2)
 ```
 
-## Q3. Which 5 organisations had the highest percentage bed occupancy in September 2018?
+## Q3. Which organisations had the highest percentage bed occupancy in September 2018?
 
 ::: incremental
-- We'll use `arrange()` as before
-- We'll use `filter()` as before
+- We'll use `arrange()` as before to find "highest"
+- We'll use `filter()` as before to restrict by date "September 2018"
 - But we don't have a percentage variable in the data
 :::
 
@@ -226,11 +232,11 @@ beds_data |>
   arrange(desc(perc_occ)) 
 ```
 
-## Q4. What was the mean number of beds, (across all trusts) for each value of date?
+## Q4. What was the mean number of beds (for the dataset)?
 
 ::: incremental
 - Let's first look at how we'd produce summary statistics like a mean
-- And then see how this can be applied to groups of data
+- And then see how this can be applied to groups of data like organisations
 :::
 
 ## summarise()
@@ -272,8 +278,8 @@ Use a `sum()` statistic twice
 object |> 
   summarise(col_1 = function_name(beds_av,
                                   na.rm = ???),
-            col_2 = function_name(occ_av),
-            na.rm = ???)
+            col_2 = function_name(occ_av,
+                                  na.rm = ???)
 )
 
 ```
@@ -315,7 +321,7 @@ beds_data |>
 ## Applying `summarise()` to groups
 
 ::: incremental
-- Now we know how to use summarise (mean)
+- Now we know how to use `summarise()` (`mean()` and also `sum()`)
 - We'll produce a summary value for **each value of date**
 :::
 
@@ -337,41 +343,19 @@ beds_data |>
 
 ## Seeing ungroup()
 
-`head()` is the base R version of `slice()` and is unaffected by `group_by()`
+The data is unchanged but the metadata changes
 
+```{r}
+beds_data |> 
+  group_by(date) 
+```
+</br>
 ```{r}
 beds_data |> 
   group_by(date) |> 
-  head(1)
+  ungroup() 
 ```
 
-```{r}
-beds_data |> 
-  group_by(date) |> 
-  ungroup() |> 
-  slice_head(n = 1)
-```
-
-## Group by - in operation
-
-The `summarise()` function currently relies upon the `group_by()` function to apply summary statistics to groups/sets but in a new release the reliance will be changed to be function specific. Currently code 
-
-```{r}
-#| code-line-numbers: "2|3"
-beds_data |> 
-  group_by(date) |>
-  summarise(mean_beds = mean(beds_av, 
-                             na.rm = TRUE))
-```
-
-```{r}
-#| echo: false 
-#| code-line-numbers: "3"
-beds_data |> 
-  summarise(mean_beds = sum(beds_av),
-            .groups = c(org_code, org_name)
-            )
-```
 
 ## Break? 
 
@@ -391,7 +375,7 @@ countdown::countdown(minutes = 10,
                      font_size = "2em")
 ```
 
-## Q5. Which 5 organisations have the highest mean % bed occupancy? 
+## Q5. Which organisations have the highest mean % bed occupancy? 
 
 :::incremental
 - For each of the organisations `group_by()`
@@ -436,3 +420,4 @@ beds_data |>
 
 ```
 
+## End of session

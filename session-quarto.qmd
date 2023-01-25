@@ -69,11 +69,19 @@ countdown::countdown(minutes = 8,
                      font_size = "2em")
 ```
 
+## Code chunks
+
+The code sections in Quarto (and RMarkdown) are called chunks  
+
+These are like smaller R scripts  
+
 ## New code chunks
 
 The default is for R chunks in R Studio but chunks can also be Python
 
-Create a new R chunk either with the green button with a <img src="img/icons/notebook-insert-chunk.png" alt="A picture of the green square with c button from RStudio to create a new chunk"/> or using `Ctrl+Alt+i`
+- Create a new R chunk either with the green button with a <img src="img/icons/notebook-insert-chunk.png" alt="A picture of the green square with c button from RStudio to create a new chunk"/> 
+- Using `Ctrl+Alt+i` 
+- In Quarto Visual type `/` and a drop down menu will appear, R chunk is the first so press Return
 
 ```{r}
 #| echo: fenced
@@ -105,9 +113,13 @@ To include code in a report or presentation use `#| echo: true`
 
 Let's try to show code in a report:
 
-1. In the chunk you created for the SQL connection type at the top of the chunk `#| echo: true`
-1. Render the script to see what that looks like in a report output.
-1. Return to SQL connection string chunk and add `#| label = "arrange"`. 
+1. Create an R code chunk
+1. Type a sum like `37 * 6`
+1. In the chunk add r #| echo: false under the `{ r}` line and Render
+1. Change the code to `true` and render
+
+Extra time: Add another line for `r #| eval: false`,  
+Render, change to true and Render again
 
 ```{r}
 #| echo: false

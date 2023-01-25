@@ -49,7 +49,9 @@ KH03 returns (bed numbers and occupancy) by organisation, published by NHS Engla
 Scraped from the [NHSE statistics](https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/bed-data-overnight/
 ) website which is partially cleaned
 
-A good point to say that are [Government data standards](https://analysisfunction.civilservice.gov.uk/area_of_work/accessibility/) to make spreadsheets and charts accessible. 
+## Accessible spreadsheets
+
+This is a perfect opportunity to say that are [Government data standards](https://analysisfunction.civilservice.gov.uk/area_of_work/accessibility/) to make spreadsheets and charts accessible.
 
 ## Importing a messy dataset
 

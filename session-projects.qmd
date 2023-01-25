@@ -79,28 +79,14 @@ Step 4
 :::
 :::
 
-## Have a go
+## Have a go! *Not for the RStudio Cloud*
 
-*Not for the RStudio Cloud*
-
-1.  Create a project in an existing folder using the Project menu.
-2.  Note the name of the `.Rproj` file that is generated automatically. Where does this come from?
-3.  Create a new project, this time choosing the selection `Shiny Application`. What files are created in the new folder other than the `.Rproj`?
+1.  Create a project in an existing folder using the Project menu.  
+2.  Note the name of the `.Rproj` file that is generated automatically.  
+3.  Create a new project, this time choosing the selection `Shiny Application`. What files are created?
 4.  Using the Project menu move between the two projects.
 
 Extra: Delete one of the `.Rproj` files and then try to select it from the menu. What happens?
-
-```{r}
-countdown::countdown(minutes = 10,
-                     color_border = "#005EB8",
-                     color_text = "#005EB8",
-                     color_running_text = "white",
-                     color_running_background = "#005EB8",
-                     color_finished_text = "#005EB8",
-                     color_finished_background = "white",
-                     margin = "0.9em",
-                     font_size = "2em")
-```
 
 ## Browsing in RStudio
 
