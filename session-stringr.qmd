@@ -32,9 +32,10 @@ library(stringr)
 #| echo: false
 #| eval: true
 #| label: "load-data"
-beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"), 
-                      col_types = cols(date = col_date(format = "%d/%m/%Y")), 
-                      skip = 3)
+beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"),
+  col_types = cols(date = col_date(format = "%d/%m/%Y")),
+  skip = 3
+)
 ```
 
 A natural step to searching for long strings is to consider searching by key words
@@ -42,12 +43,12 @@ A natural step to searching for long strings is to consider searching by key wor
 ```{r}
 library(dplyr)
 library(stringr)
-beds_data |> 
-  filter(str_detect(string = org_name,
-                    pattern = "Bradford",
-                    negate = FALSE
+beds_data |>
+  filter(str_detect(
+    string = org_name,
+    pattern = "Bradford",
+    negate = FALSE
   ))
-
 ```
 
 See what happens when negate is changed to `TRUE`
@@ -60,21 +61,21 @@ Creating trailing spaces in R
 
 ```{r}
 #| eval: true
-beds_data |> 
-  mutate(new_org_name = paste(org_name, "  "),
-         org_name_number = nchar(org_name),
-         new_org_name_number = nchar(new_org_name))
-
+beds_data |>
+  mutate(
+    new_org_name = paste(org_name, "  "),
+    org_name_number = nchar(org_name),
+    new_org_name_number = nchar(new_org_name)
+  )
 ```
 
 ## Removing trailing spaces
 
 ```{r}
 #| eval: true
-beds_data |> 
-  mutate(new_org_name = paste(org_name, "  ")) |> 
+beds_data |>
+  mutate(new_org_name = paste(org_name, "  ")) |>
   mutate(returned_org_name = str_trim(new_org_name, "both"))
-
 ```
 
 ## End session

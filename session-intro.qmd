@@ -15,6 +15,7 @@ format:
 execute: 
   echo: false
   eval: false
+embed-resources: true  
 ---
 
 ## Agenda - morning

@@ -14,7 +14,7 @@ order.
 ## Introduction
 [Course agenda and aims](https://nhs-r-community.github.io/intro-r-rstudio/session-intro.html#/title-slide)  
 [Introducing and getting started with RStudio](https://nhs-r-community.github.io/intro-r-rstudio/session-rstudio.html#/title-slide)  
-[Introducing what packages are in R](https://nhs-r-community.github.io/intro-r-rstudio/session-packages.html#/title-slide)
+[Introducing what packages are in R](https://nhs-r-community.github.io/intro-r-rstudio/session-packages.html#/title-slide)  
 
 ## Break
 [Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
@@ -36,9 +36,9 @@ order.
 ## Break
 [Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
 
-[Joining data together](https://nhs-r-community.github.io/intro-r-rstudio/session-joins.html#/title-slide)  
-[Creating new objects](https://nhs-r-community.github.io/intro-r-rstudio/session-objects.html#/title-slide)
+[Creating new objects](https://nhs-r-community.github.io/intro-r-rstudio/session-objects.html#/title-slide)  
 [Introducing vectors](https://nhs-r-community.github.io/intro-r-rstudio/session-vectors.html#/title-slide)  
+[Joining data together](https://nhs-r-community.github.io/intro-r-rstudio/session-joins.html#/title-slide)  
 [How to style your R code](https://nhs-r-community.github.io/intro-r-rstudio/session-styling.html#/title-slide)  
 
 ## Finding Help

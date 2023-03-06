@@ -44,7 +44,6 @@ RStudio, the company is now Posit
 -   RStudio open an R session - no longer have to think of them separately\
 
 ::: incremental
--   RStudio open an R session - no longer have to think of them separately\
 -   All clickable areas have underlying code to automate in scripts
 -   Works with other languages - not just R
 -   Very easy to set up

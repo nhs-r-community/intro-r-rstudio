@@ -26,7 +26,7 @@ library(countdown)
 ```
 
 ```{r}
-countdown::countdown(minutes = 8,
+countdown::countdown(minutes = 10,
                      color_border = "#005EB8",
                      color_text = "#005EB8",
                      color_running_text = "white",

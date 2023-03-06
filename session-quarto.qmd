@@ -113,12 +113,11 @@ To include code in a report or presentation use `#| echo: true`
 
 Let's try to show code in a report:
 
-1. Create an R code chunk
-1. Type a sum like `37 * 6`
+1. Create an R code chunk and type a sum like `37 * 6`
 1. In the chunk add r #| echo: false under the `{ r}` line and Render
 1. Change the code to `true` and render
 
-Extra time: Add another line for `r #| eval: false`,  
+Extra time: Add another line for "r #| eval: false",  
 Render, change to true and Render again
 
 ```{r}
