@@ -133,14 +133,44 @@ countdown::countdown(minutes = 7,
                      font_size = "2em")
 ```
 
-## Table of contents
+## Global options settings
 
-- A table of contents is built automatically in RStudio when headers are used.
+The default {r} settings are for echo: true and eval: true. 
+
+To switch these globally in YAML (yet another markup language):
+
+```{yaml}
+title: "My report"
+format: html
+execute:
+    echo: true
+    eval: true
+```
+
+## Self contained
+
+To create an html output that can be emailed without a folder with images and libraries:
+
+```{yaml}
+title: "My report"
+format: html
+execute:
+    echo: true
+    eval: true 
+embed-resources: true
+```
+
+## Table of contents
+- Chunks can be named which makes them easier to navigate from the bottom left hand menu in the Editor.
 
 :::incremental
-- Accessed through the Outline icon in the top right of the Editor pane.
 
-- Code chunks and headers together can be navigated from the bottom left of the Editor pane.
+- A table of contents based on just headers is built automatically in RStudio and can be switched on/off from the Outline icon in the top right of the Editor pane.
+
+```{r}
+#| echo: fenced
+# label: my-chunk-name
+```
 :::
 
 ## End session

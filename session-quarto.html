@@ -1720,7 +1720,7 @@ Zoë Turner
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_4871ad77" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_a920d804" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1780,7 +1780,7 @@ Zoë Turner
 Render, change to true and Render again</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_00f89f40" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_e8818adf" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1788,15 +1788,39 @@ Render, change to true and Render again</p>
 </div>
 </div>
 </div>
+</section><section id="global-options-settings" class="slide level2"><h2>Global options settings</h2>
+<p>The default {r} settings are for echo: true and eval: true.</p>
+<p>To switch these globally in YAML (yet another markup language):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My report&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="at">    </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="self-contained" class="slide level2"><h2>Self contained</h2>
+<p>To create an html output that can be emailed without a folder with images and libraries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My report&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="at">    </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="at"> </span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="table-of-contents" class="slide level2"><h2>Table of contents</h2>
 <ul>
-<li>A table of contents is built automatically in RStudio when headers are used.</li>
+<li>Chunks can be named which makes them easier to navigate from the bottom left hand menu in the Editor.</li>
 </ul>
 <div>
 <ul>
-<li class="fragment"><p>Accessed through the Outline icon in the top right of the Editor pane.</p></li>
-<li class="fragment"><p>Code chunks and headers together can be navigated from the bottom left of the Editor pane.</p></li>
+<li class="fragment">A table of contents based on just headers is built automatically in RStudio and can be switched on/off from the Outline icon in the top right of the Editor pane.</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># label: my-chunk-name</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section><section id="end-session" class="slide level2"><h2>End session</h2>
 
