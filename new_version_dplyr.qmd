@@ -4,6 +4,7 @@ format: html
 execute:
   echo: true
   eval: false
+embed-resources: true  
 ---
 
 ## Group by - in operation
