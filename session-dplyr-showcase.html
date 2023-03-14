@@ -1247,21 +1247,21 @@ Zoë Turner
 <p>Or position (including a range from:to)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">select</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4,558 × 5
-   date       org_code org_name                                   beds_av occ_av
-   &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;                                        &lt;dbl&gt;  &lt;dbl&gt;
- 1 2013-09-01 R1A      Worcestershire Health And Care                 129    117
- 2 2013-09-01 R1C      Solent                                         105     82
- 3 2013-09-01 R1E      Staffordshire And Stoke On Trent Partners…      NA     NA
- 4 2013-09-01 R1F      Isle Of Wight                                   54     42
- 5 2013-09-01 R1H      Barts Health                                    NA     NA
- 6 2013-09-01 R1J      Gloucestershire Care Services                   NA     NA
- 7 2013-09-01 RA2      Royal Surrey County Hospital                    NA     NA
- 8 2013-09-01 RA3      Weston Area Health                              NA     NA
- 9 2013-09-01 RA4      Yeovil District Hospital                        NA     NA
-10 2013-09-01 RA7      University Hospitals Bristol                    NA     NA
+<pre><code># A tibble: 4,558 × 3
+   org_name                                     beds_av occ_av
+   &lt;chr&gt;                                          &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Worcestershire Health And Care                   129    117
+ 2 Solent                                           105     82
+ 3 Staffordshire And Stoke On Trent Partnership      NA     NA
+ 4 Isle Of Wight                                     54     42
+ 5 Barts Health                                      NA     NA
+ 6 Gloucestershire Care Services                     NA     NA
+ 7 Royal Surrey County Hospital                      NA     NA
+ 8 Weston Area Health                                NA     NA
+ 9 Yeovil District Hospital                          NA     NA
+10 University Hospitals Bristol                      NA     NA
 # … with 4,548 more rows</code></pre>
 </div>
 </div>
@@ -1354,62 +1354,15 @@ Zoë Turner
 # … with 4,548 more rows</code></pre>
 </div>
 </div>
-</section><section id="count" class="slide level2"><h2>count()</h2>
-<p>There is a function to count</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(org_name) <span class="sc">|&gt;</span> </span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">count</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 255 × 2
-# Groups:   org_name [255]
-   org_name                                                 n
-   &lt;chr&gt;                                                &lt;int&gt;
- 1 2gether                                                 21
- 2 5 Boroughs Partnership                                  11
- 3 Aintree University Hospital                             21
- 4 Airedale                                                21
- 5 Alder Hey Children&#39;s                                    21
- 6 Ashford And St Peter&#39;s Hospitals                        21
- 7 Avon And Wiltshire Mental Health Partnership            21
- 8 Barking, Havering And Redbridge University Hospitals    21
- 9 Barnet And Chase Farm Hospitals                          4
-10 Barnet, Enfield And Haringey Mental Health              21
-# … with 245 more rows</code></pre>
-</div>
-</div>
-<p>And also order the count</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">group_by</span>(org_name) <span class="sc">|&gt;</span> </span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">count</span>(<span class="at">sort =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 255 × 2
-# Groups:   org_name [255]
-   org_name                                                 n
-   &lt;chr&gt;                                                &lt;int&gt;
- 1 2gether                                                 21
- 2 Aintree University Hospital                             21
- 3 Airedale                                                21
- 4 Alder Hey Children&#39;s                                    21
- 5 Ashford And St Peter&#39;s Hospitals                        21
- 6 Avon And Wiltshire Mental Health Partnership            21
- 7 Barking, Havering And Redbridge University Hospitals    21
- 8 Barnet, Enfield And Haringey Mental Health              21
- 9 Barnsley Hospital                                       21
-10 Barts Health                                            21
-# … with 245 more rows</code></pre>
-</div>
-</div>
 </section><section id="using-n-and-n_distinct" class="slide level2"><h2>Using n() and n_distinct()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">group_by</span>(org_code) <span class="sc">|&gt;</span> </span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">summarise</span>(<span class="at">number =</span> <span class="fu">n</span>(),</span>
-<span id="cb17-4"><a href="#cb17-4"></a>            <span class="co"># distinct number of org_name</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>            <span class="at">distinct_number =</span> <span class="fu">n_distinct</span>(org_name)) <span class="sc">|&gt;</span> </span>
-<span id="cb17-6"><a href="#cb17-6"></a>  <span class="fu">filter</span>(distinct_number <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distinct_number))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>beds_data <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(org_code) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">summarise</span>(<span class="at">number =</span> <span class="fu">n</span>(),</span>
+<span id="cb13-4"><a href="#cb13-4"></a>            <span class="co"># distinct number of org_name</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>            <span class="at">distinct_number =</span> <span class="fu">n_distinct</span>(org_name)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">filter</span>(distinct_number <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distinct_number))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 3
    org_code number distinct_number

@@ -52,7 +52,7 @@ Or position (including a range from:to)
 
 ```{r}
 beds_data |> 
-  select(1:5)
+  select(3:5)
 ```
 
 ## Deselecting
@@ -92,23 +92,6 @@ beds_data |>
   select(contains("s_a"))
 ```
 
-## count()
-
-There is a function to count
-
-```{r }
-beds_data |> 
-  group_by(org_name) |> 
-  count() 
-```
-
-And also order the count
-
-```{r }
-beds_data |> 
-  group_by(org_name) |> 
-  count(sort = TRUE) 
-```
 
 ## Using n() and n_distinct()
 

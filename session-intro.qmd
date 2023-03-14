@@ -18,7 +18,7 @@ execute:
 embed-resources: true  
 ---
 
-## Agenda - morning
+## Agenda - session one (about 3.5 hours)
 
 Chapter overview
 
@@ -39,7 +39,7 @@ Import features of coding
 :::
 
 
-## Agenda - afternoon
+## Agenda - session two (about 4 hours)
 
 Chapter overview
 
@@ -60,17 +60,17 @@ Finding help
 
 ::: incremental
 -   To introduce RStudio as an IDE (integrated development environment)
--   Introduce familiar concepts of data manipulation in R
+-   Introduce familiar concepts of data manipulation but using R
 -   Practice these concepts and bring them together in a Quarto report
 :::
 
 ## Reasons to use R
 
 ::: incremental
+-   [Community](https://nhsrcommunity.slack.com)
 -   [Collaboration](https://github.com/nhs-r-community)
 -   [Open coding](https://www.gov.uk/government/publications/better-broader-safer-using-health-data-for-research-and-analysis/better-broader-safer-using-health-data-for-research-and-analysis)
 -   [Reproducible Analytical Pipelines](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/)
--   [Community](https://nhsrcommunity.slack.com)
 :::
 
 ## End session
