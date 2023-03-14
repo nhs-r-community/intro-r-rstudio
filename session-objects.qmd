@@ -58,6 +58,8 @@ beds_data |>
 
 In R the assign operator `<-` is conventionally used instead of `=` although that will work
 
+Shortcut key is `Alt and -`
+
 ```{r}
 
 bed_occupancy <- beds_data |> 

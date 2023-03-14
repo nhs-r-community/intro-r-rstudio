@@ -25,14 +25,14 @@ library(countdown)
 ```
 
 
-## R Scripts v RMarkdown/Quarto
+## R Scripts v RMarkdown v Quarto
 
 ::: incremental
 - Scripts are very quick files of code with comments but RMarkdown and Quarto mix written text with code.
 
-- Quarto is a newer version of RMarkdown (2022) and is very similar for R users
+- Quarto is a newer version of RMarkdown (2022) and is very similar for R users.
 
-- Quarto allows the possibility of working with colleagues who use other languages like Python
+- Quarto allows the possibility of working with colleagues who use other languages like Python.
 :::
 
 ## Open a new Quarto file
@@ -45,15 +45,27 @@ Will open up a wizard to force the file to be saved.
 
 As Quarto produces an output file it must have rights to save to the location.
 
+::: notes
+Virtual workspaces like the modern desktop used by NHS England may have issues with this as the working directory cannot be overridden with a project file or setwd(). See the prework for help or contact the NHSER group through NHS Futures/NHSR Slack.
+:::
 
 ## Have a go!
 
-1. Change the title and then render
-1. Go to the bottom of the existing code and in Visual mode create a header `Introduction code` and add a small table
-1. Change the view to Source from Visual
-1. Click on the wheel icon next to Render and in that menu select Preview in `View Pane`
-1. Render the qmd
+1. Change the title and then render.
+1. Go to the bottom of the existing code and in Visual mode create a header `Introduction code` and add a small table.
+1. Change the view to Source from Visual - what does the table look like in code?.
+1. Click on the wheel icon next to Render and in that menu select Preview in `View Pane`.
+1. Render the qmd.
 
+::: notes
+For Visual mode in Quarto:
+Type / then return for the visual mode to get a short list of code like chunks and headers.
+
+The table can be created through Insert menu or Table and it's the same.
+
+Type in the Source code table to mess up the structure, go to Visual and show how this can be moved with a mouse, then back to Source and it will be neatened automatically.
+
+:::
 
 ```{r}
 #| eval: true
@@ -71,15 +83,15 @@ countdown::countdown(minutes = 8,
 
 ## Code chunks
 
-The code sections in Quarto (and RMarkdown) are called chunks  
+The code sections in Quarto (and RMarkdown) are called chunks.  
 
-These are like smaller R scripts  
+These are like smaller R scripts.  
 
 ## New code chunks
 
 The default is for R chunks in R Studio but chunks can also be Python
 
-- Create a new R chunk either with the green button with a <img src="img/icons/notebook-insert-chunk.png" alt="A picture of the green square with c button from RStudio to create a new chunk"/> 
+- Create a new R chunk either with the green button with a <img src="img/icons/notebook-insert-chunk.png" alt="A picture of the green square with c button from RStudio to create a new chunk" width="5%" height="5%"/> 
 - Using `Ctrl+Alt+i` 
 - In Quarto Visual type `/` and a drop down menu will appear, R chunk is the first so press Return
 
@@ -101,7 +113,7 @@ To stop code running in any of the chunks code:
 #| echo: fenced
 #| eval: false
 
-This will not run
+This will not run and break your code
 ```
 
 :::incremental
@@ -109,16 +121,26 @@ This will not run
 To include code in a report or presentation use `#| echo: true`
 :::
 
+::: notes
+Direct to [Quarto documentation](https://quarto.org/docs/computations/execution-options.html) for more chunk option information.
+
+Point out the spaces between #| and option then again between : and the true/false is needed or won't Render
+:::
+
 ## Have a go!
 
 Let's try to show code in a report:
 
 1. Create an R code chunk and type a sum like `37 * 6`
-1. In the chunk add r #| echo: false under the `{ r}` line and Render
-1. Change the code to `true` and render
+1. In the chunk add `#| echo: false` under the `{r}` and Render
+1. Change the code to `true` and Render
 
-Extra time: Add another line for "r #| eval: false",  
-Render, change to true and Render again
+Extra time: Add another line for `#| eval: false`,  
+Render, change to `true` and Render
+
+::: notes
+If you show how this works and the chunk has `echo: true` and `eval: true` then this will highlight how the global is overwritten in the chunk in the next section.
+:::
 
 ```{r}
 #| echo: false
@@ -135,9 +157,9 @@ countdown::countdown(minutes = 7,
 
 ## Global options settings
 
-The default {r} settings are for echo: true and eval: true. 
+The default {r} settings are for `echo: true` and `eval: true`. 
 
-To switch these globally in YAML (yet another markup language):
+To switch these globally in YAML (yet another markup language) use execute and set the options to `false`
 
 ```{yaml}
 title: "My report"
@@ -160,17 +182,46 @@ execute:
 embed-resources: true
 ```
 
-## Table of contents
-- Chunks can be named which makes them easier to navigate from the bottom left hand menu in the Editor.
-
-:::incremental
-
-- A table of contents based on just headers is built automatically in RStudio and can be switched on/off from the Outline icon in the top right of the Editor pane.
-
-```{r}
-#| echo: fenced
-# label: my-chunk-name
-```
+::: notes
+Note that self-contained from RMarkdown also works as Quarto is backwards compatible.
 :::
 
+## Report output table of contents
+
+Code can be added to the YAML to create an interactive table of contents (in html)
+
+```{yaml}
+title: "My report"
+format: 
+  html:
+    toc: true
+```
+
+Note that spaces in the YAML matter!
+
+## Naming chunks
+
+::: columns
+::: {.column width="40%"}
+Chunks can be named which makes them easier to navigate from the bottom left hand menu in the Editor.
+
+`#| label: my-chunk-name`
+:::
+
+::: {.column width="60%"}
+<img src="img/session-quarto/chunk-names.PNG" alt="Screenshot of RStudio bottom left corner of Editor with the table of contents and a the label code from a chunk behind the menu" class="center"/>
+:::
+:::
+
+# Navigating headers in RStudio
+
+::: columns
+::: {.column width="40%"}
+A headers outline can be switched on/off from the Outline icon in the top right of the Editor pane.
+:::
+
+::: {.column width="60%"}
+<img src="img/session-quarto/outline-toc.PNG" alt="Screenshot of RStudio with the outline button and menu highlighted" class="center"/>
+:::
+:::
 ## End session

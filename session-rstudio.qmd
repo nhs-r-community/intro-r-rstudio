@@ -124,7 +124,7 @@ Comment code with a hash \#
 Comment frequently, at least in the beginning
 
 Keyboard shortcut:\
-`Ctrl+C` for commenting and uncommenting
+`Ctrl+Shift+C` for commenting and uncommenting
 
 ## Tools \> Options \> workspace
 

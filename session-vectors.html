@@ -1232,12 +1232,17 @@ Zoë Turner
 </div>
 </section><section id="looking-for-more-than-one-string" class="slide level2"><h2>Looking for more than one string</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">c</span>(<span class="st">&quot;Bradford District Care&quot;</span>, <span class="st">&quot;Bradford District Care Trust&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">c</span>(<span class="st">&quot;Bradford District Care&quot;</span>, <span class="st">&quot;Bradford District Care Trust&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># can be made into an object</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>org_lookup <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Bradford District Care&quot;</span>, <span class="st">&quot;Bradford District Care Trust&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section><section id="using-in-filter" class="slide level2"><h2>Using in <code>filter()</code>
+</h2>
 <p>Filter by org_name IN the lookup list.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">filter</span>(org_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Bradford District Care&quot;</span>, <span class="st">&quot;Bradford District Care Trust&quot;</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">filter</span>(org_name <span class="sc">%in%</span> org_lookup) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Code would look like this in SQL</p>
 <div class="cell">
@@ -1249,7 +1254,7 @@ Zoë Turner
 <p>Filter by org_name NOT IN the lookup list.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span>org_name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Bradford District Care&quot;</span>, <span class="st">&quot;Bradford District Care Trust&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span>org_name <span class="sc">%in%</span> org_lookup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In SQL</p>
 <div class="cell">

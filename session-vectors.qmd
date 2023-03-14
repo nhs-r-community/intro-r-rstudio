@@ -56,14 +56,18 @@ c("beds", 80, "patients")
 
 c("Bradford District Care", "Bradford District Care Trust")
 
+# can be made into an object
+org_lookup <- c("Bradford District Care", "Bradford District Care Trust")
 ```
+
+## Using in `filter()`
 
 Filter by org_name IN the lookup list.
 
 ```{r }
 #| code-line-numbers: "2"
 beds_data |> 
-  filter(org_name %in% c("Bradford District Care", "Bradford District Care Trust")) 
+  filter(org_name %in% org_lookup) 
 ```
 
 Code would look like this in SQL
@@ -82,7 +86,7 @@ Filter by org_name NOT IN the lookup list.
 ```{r }
 #| code-line-numbers: "2"
 beds_data |> 
-  filter(!org_name %in% c("Bradford District Care", "Bradford District Care Trust"))
+  filter(!org_name %in% org_lookup)
 ```
 
 In SQL

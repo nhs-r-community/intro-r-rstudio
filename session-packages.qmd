@@ -17,8 +17,27 @@ execute:
     eval: false
 ---
 
+## Package locations
+
+### CRAN repository
+
+[Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
+
+19,291 packages (March 2023), free and structurally peer reviewed
+
+### GitHub
+
+Many useful packages in development or subject to a lot of change are not on CRAN and are available through GitHub including [{NHSRtheme}](https://github.com/nhs-r-community/NHSRtheme). These won't be peer reviewed.
+
+### ROpenSci
+
+ROpenSci offer a peer reviewed ecosystem of R packages through GitHub including UKHSA's [{fingertipsR}](https://github.com/ropensci/fingertipsR)
+
+
 ## Packages
 
+::: columns
+::: {.column width="40%"}
 Quotations in R can be either double or single quotes but cannot be mixed or omitted:
 
 ```{r}
@@ -29,37 +48,46 @@ install.packages("tidyverse")
 install.packages('tidyverse')
 ```
 
-will download a package to your personal library (quotes can be used)
+:::
 
+::: {.column width="60"}
+or use the RStudio wizard (only for published CRAN packages)
+
+<img src="img/session-packages/package-wizard.PNG" alt="Screenshot of right panels in RStudio with the Packages tab highlighted" class="center"/>
+:::
+:::
+
+::: notes
+Explore searching for packages in this panel
+:::
+
+# Loading package
+
+This needed for every new session/script and is often at the top
+
+::: columns
+::: {.column width="40%"}
 ```{r}
 library(tidyverse) 
 ```
 
-tells R to load the package from your personal library and is needed for every new session/script
+Can be loaded from the packages panel and code appears in the Console
+:::
+
+::: {.column width="60%"}
+<img src="img/session-packages/package-load.PNG" alt="Screenshot of the tick box next to tidyverse in the Packages tab that can be ticked" class="center"/>
+:::
+:::
+
 
 ::: notes
 On work computer networks the packages get saved to personal files on C: drives so are not accessible to everyone
 
-Good practice to detail what you use in the script, RStudio will pick up references to packages not yet loaded (on CRAN)
+RStudio will pick up references to packages not yet loaded (on CRAN)
 
-Delete unused packages
+Also mention how quotations don't matter but case does in R
 :::
 
-## Package locations
-
-### CRAN repository
-
-[Comprehensive R Archive Network](https://cran.r-project.org/web/packages/)
-
-18,903 packages (April 2022). Free. Peer reviewed.
-
-### GitHub
-
-Many useful packages in development or subject to a lot of change are not on CRAN and are available through GitHub including [{NHSRtheme}](https://github.com/nhs-r-community/NHSRtheme). These won't be peer reviewed.
-
-### ROpenSci
-
-ROpenSci offer a peer reviewed ecosystem of R packages through GitHub including UKHSA's [{fingertipsR}](https://github.com/ropensci/fingertipsR)
 
 ## {tidyverse}
 
@@ -69,7 +97,7 @@ Curly brackets around a {package} is used in text as many packages have "real na
 :::
 
 ::: {.column width="60%"}
-<img src="img/session01/tidyverse.PNG" alt="The tidyverse name in a black screen with coloured dots like stars" class="center"/>
+<img src="img/session-packages/tidyverse.PNG" alt="The tidyverse name in a black screen with coloured dots like stars" class="center"/>
 :::
 :::
 
@@ -86,18 +114,25 @@ Should you use {tidyverse} when many of the packages are redundant?
 
 Clashes occur with the packages which you are notified about, but not with those outside the package
 
-    -- Attaching packages ------------------------------------------ tidyverse 1.3.0 --
-    v ggplot2 3.3.3     v purrr   0.3.4
-    v tibble  3.1.0     v dplyr   1.0.4
-    v tidyr   1.1.2     v stringr 1.4.0
-    v readr   1.4.0     v forcats 0.5.1
-    -- Conflicts --------------------------------------------- tidyverse_conflicts() --
-    x dplyr::filter() masks stats::filter()
-    x dplyr::lag()    masks stats::lag()
+```{r}
+── Attaching core tidyverse packages ────────────────────────────────────────────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ──────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package to force all conflicts to become errors
+```
+::: notes
+Might be best for beginners just to used {tidyverse} as it's easy to install and load altogether.
+:::
 
 ## Errors, warnings & notifications
 
-Warnings - not errors, just information on versions
+Warnings - not errors, just information on versions (from an older system)
 
     Warning messages:
     1: package ‘tidyverse’ was built under R version 4.0.4 
@@ -109,21 +144,15 @@ Warnings - not errors, just information on versions
 
 Don't rely upon colour changes as all three are orange in the console!
 
-## Install and load packages
+::: notes
+Errors will be where the code breaks and also says Error. 
 
-The wizard in RStudio for all of these CRAN packages is in the `Packages` tab in the bottom right or
+Warnings often mean the code has run, it's just giving information as something could break.
 
-```{r}
-install.packages(dplyr)
-install.packages(datapasta)
-install.packages(usethis)
+Red text is possibly avoided because of colour blindness.
 
-# or in one line
-# install.packages(c("dplyr", "datapasta", "usethis"))
+{tidyverse} messages are very helpful and have been coded to give good information on errors.
+:::
 
-library(dplyr)
-library(datapasta)
-library(usethis)
-```
 
 ## End session

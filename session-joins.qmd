@@ -83,7 +83,7 @@ Import the files:
 ```{r}
 #| eval: true
 #| echo: false
-countdown::countdown(minutes = 8,
+countdown::countdown(minutes = 5,
                      color_border = "#005EB8",
                      color_text = "#005EB8",
                      color_running_text = "white",
@@ -113,13 +113,13 @@ tb_cases |>
   left_join(tb_pop, by = c("country", "year"))
 ```
 
-## Vectors
-
-You can create a vector with function: `c()` for concatenate/combine
+and as of 2023 now:
 
 ```{r}
-c("beds", "staff", "patients")
+tb_cases |> 
+  left_join(tb_pop, join_by(country, year))
 ```
+
 
 ## Default combine
 
@@ -139,6 +139,14 @@ If two tables have different names for same variable:
 tb_cases |> 
   left_join(tb_new_table, by = c("country" = "Place",
                                  "year" = "Yr"))
+```
+
+as of 2023
+
+```{r}
+tb_cases |> 
+  left_join(tb_new_table, by = join_by(country == Place,
+                                       year == Yr))
 ```
 
 ## semi_join()
@@ -162,11 +170,13 @@ Finding hospital patients who have had a Covid-19 test but only bring back the i
 Join to the `tb_new_table` and bring back only those records where the column `FirstLetter` is 'A' but drop the data from `tb_new_table.`
 
 ```{r}
-#| eval = TRUE
+# Create a new data frame to join to
+lookup_table <- tb_new_table |> 
+  filter(FirstLetter == "A")
+
 tb_cases |> 
-  semi_join(tb_new_table |> 
-              filter(FirstLetter == "A"), by = c("country" = "Place",
-                                                 "year" = "Yr"))
+  semi_join(lookup_table, by = join_by(country == Place,
+                                       year == Yr))
 ```
 
 ## anti_join()
@@ -188,11 +198,9 @@ In text mining, exclude 'stop words' (but, and, or) which are kept in a separate
 Join to the `tb_new_table` and exclude only those records where the column `FirstLetter` is 'A' .
 
 ```{r}
-#| eval = TRUE
 tb_cases |> 
-  anti_join(tb_new_table |> 
-              filter(FirstLetter == "A"), by = c("country" = "Place",
-                                                 "year" = "Yr"))
+  anti_join(lookup_table, by = join_by(country == Place,
+                                       year == Yr))
 ```
 
 ## End session
