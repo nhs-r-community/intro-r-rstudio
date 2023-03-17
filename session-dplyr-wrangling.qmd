@@ -76,9 +76,6 @@ Note `summarise()` can also be spelt `summarize()`
 dplyr::arrange()
 dplyr::filter()
 dplyr::mutate()
-dplyr::group_by()
-# followed by 
-dplyr::ungroup()
 dplyr::summarise()
 ```
 
@@ -340,22 +337,6 @@ beds_data |>
 - We'll produce a summary value for **each value of date**
 :::
 
-## group_by() - persistent grouping
-
-`group_by()` does nothing to the output alone.  
-The change occurs behind the scenes. 
-
-```{r}
-#| code-line-numbers: "2"
-beds_data |> 
-  group_by(date) 
-
-```
-
-## ungroup()
-
-<img class="center" src="img/session06/group_by_ungroup.png" alt="Cartoon of fuzzy creatures created by Allison Horts with party hats on. Two are together and happy but one is behind holding a present and looking sad. The words."/>
-
 ## group_by() - temporary grouping
 
 New for 2023 grouping can be added into the functions directly so is temporary.
@@ -369,9 +350,27 @@ beds_data |>
             .by = date)
 ```
 
+## group_by() - persistent grouping
+
+`group_by()` is a function that you may see in other code. 
+
+It does nothing to the output alone.  
+The change occurs behind the scenes. 
+
+```{r}
+#| code-line-numbers: "2"
+beds_data |> 
+  group_by(date) 
+
+```
+
+## ungroup()
+
+<img class="center" src="img/session06/group_by_ungroup.png" alt="Cartoon of fuzzy creatures created by Allison Horts with party hats on. Two are together and happy but one is behind holding a present and looking sad. The words."/>
+
 ## Break? 
 
-Option to take this break before an exercise of after
+Option to take this break before an exercise or after
 
 ```{r}
 #| echo: false
@@ -390,9 +389,10 @@ countdown::countdown(minutes = 10,
 ## Q5. Which organisations have the highest mean % bed occupancy? 
 
 :::incremental
-- For each of the organisations `group_by()` or in `summarise()` with `.by = `
-- In `summarise()` add sums for `total_beds` and `total_occupancy`. 
-- `mutate()` the new data frame to create a percentage using the totals (occ / beds) 
+- `summarise()` using sum() for `total_beds` and `total_occupancy`. 
+- Grouping in `summarise()` by organisations using `.by = `.
+- `mutate()` the new 2 column data frame to create a percentage using the totals 
+(occ / beds) 
 - Order to find highest by using `arrange()`
 :::
 
@@ -414,19 +414,21 @@ countdown::countdown(minutes = 10,
 
 ```{r}
 beds_data |> 
-  group_by(org_name) |> 
   summarise(total_beds = sum(beds_av, na.rm = TRUE),
-            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
+            total_occupancy = sum(occ_av, na.rm = TRUE),
+            .by = date) |> 
   mutate(perc_occ = total_occupancy / total_beds) |> 
   arrange(desc(perc_occ))
 
 ```
 </br>
 ```{r}
+#| code-fold: true
+#| code-summary: "Answer using the group_by() function"
 beds_data |> 
+  group_by(org_name) |> 
   summarise(total_beds = sum(beds_av, na.rm = TRUE),
-            total_occupancy = sum(occ_av, na.rm = TRUE),
-            .by = date) |> 
+            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
   mutate(perc_occ = total_occupancy / total_beds) |> 
   arrange(desc(perc_occ))
 

@@ -1725,7 +1725,7 @@ Zoë Turner
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_357d30b9" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_7235a3c2" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1737,18 +1737,18 @@ Zoë Turner
 <p>Using spaces helps with readability</p>
 <p>The code below will run as R doesn’t need spaces to work:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>beds_data<span class="sc">|&gt;</span><span class="fu">group_by</span>(org_name)<span class="sc">|&gt;</span><span class="fu">summarise</span>(<span class="at">total_beds=</span><span class="fu">sum</span>(beds_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">total_occupancy=</span><span class="fu">sum</span>(occ_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">|&gt;</span><span class="fu">mutate</span>(<span class="at">perc_occ=</span>total_occupancy<span class="sc">/</span>total_beds)<span class="sc">|&gt;</span><span class="fu">arrange</span>(<span class="fu">desc</span>(perc_occ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>beds_dataset<span class="ot">=</span>beds_data<span class="sc">|&gt;</span><span class="fu">summarise</span>(<span class="at">total_beds=</span><span class="fu">sum</span>(beds_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">total_occupancy=</span><span class="fu">sum</span>(occ_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">.by=</span>org_name)<span class="sc">|&gt;</span><span class="fu">mutate</span>(<span class="at">perc_occ=</span>total_occupancy<span class="sc">/</span>total_beds)<span class="sc">|&gt;</span><span class="fu">arrange</span>(<span class="fu">desc</span>(perc_occ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Putting the spaces in can be effort after it’s been written</p>
 </section><section id="have-a-go---styler" class="slide level2"><h2>Have a go - {styler}</h2>
 <p>Firstly copy the code without spaces to the document</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>beds_data<span class="sc">|&gt;</span><span class="fu">group_by</span>(org_name)<span class="sc">|&gt;</span><span class="fu">summarise</span>(<span class="at">total_beds=</span><span class="fu">sum</span>(beds_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">total_occupancy=</span><span class="fu">sum</span>(occ_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">|&gt;</span><span class="fu">mutate</span>(<span class="at">perc_occ=</span>total_occupancy<span class="sc">/</span>total_beds)<span class="sc">|&gt;</span><span class="fu">arrange</span>(<span class="fu">desc</span>(perc_occ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>beds_dataset<span class="ot">=</span>beds_data<span class="sc">|&gt;</span><span class="fu">summarise</span>(<span class="at">total_beds=</span><span class="fu">sum</span>(beds_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">total_occupancy=</span><span class="fu">sum</span>(occ_av,<span class="at">na.rm=</span><span class="cn">TRUE</span>),<span class="at">.by=</span>org_name)<span class="sc">|&gt;</span><span class="fu">mutate</span>(<span class="at">perc_occ=</span>total_occupancy<span class="sc">/</span>total_beds)<span class="sc">|&gt;</span><span class="fu">arrange</span>(<span class="fu">desc</span>(perc_occ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With {styler} loaded <code><a href="https://github.com/r-lib/styler">library(styler)</a></code> go to the Add in drop down menu and select <code>Style Active File</code></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_69739dc2" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_6f32ead7" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>

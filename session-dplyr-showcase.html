@@ -1357,26 +1357,25 @@ Zoë Turner
 </section><section id="using-n-and-n_distinct" class="slide level2"><h2>Using n() and n_distinct()</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(org_code) <span class="sc">|&gt;</span> </span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">summarise</span>(<span class="at">number =</span> <span class="fu">n</span>(),</span>
-<span id="cb13-4"><a href="#cb13-4"></a>            <span class="co"># distinct number of org_name</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>            <span class="at">distinct_number =</span> <span class="fu">n_distinct</span>(org_name)) <span class="sc">|&gt;</span> </span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">filter</span>(distinct_number <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distinct_number))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">summarise</span>(<span class="at">number =</span> <span class="fu">n</span>(), <span class="co"># distinct number of org_name</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>            <span class="at">distinct_number =</span> <span class="fu">n_distinct</span>(org_name),</span>
+<span id="cb13-4"><a href="#cb13-4"></a>            <span class="at">.by =</span> org_code) <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">filter</span>(distinct_number <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distinct_number))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 22 × 3
    org_code number distinct_number
    &lt;chr&gt;     &lt;int&gt;           &lt;int&gt;
  1 RDE          21               3
  2 RTG          21               3
- 3 R1K          16               2
- 4 RA9          21               2
- 5 RBN          21               2
- 6 RD1          21               2
- 7 RD8          21               2
- 8 RDU          21               2
- 9 RGM          21               2
-10 RGN          21               2
+ 3 RA9          21               2
+ 4 RBN          21               2
+ 5 RD1          21               2
+ 6 RD8          21               2
+ 7 RDU          21               2
+ 8 RGM          21               2
+ 9 RGN          21               2
+10 RJ7          21               2
 # … with 12 more rows</code></pre>
 </div>
 </div>

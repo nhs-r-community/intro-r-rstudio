@@ -1743,7 +1743,7 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside><div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_670e58fe" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_23438119" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1767,9 +1767,6 @@ display:block!important;
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="dv">37</span><span class="sc">+</span><span class="dv">9</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 46</code></pre>
-</div>
 </div>
 </section><section id="chunk-options" class="slide level2"><h2>Chunk options</h2>
 <p>Each <code>chunk</code> is a part of a longer script and needs to be run in order to render.</p>
@@ -1778,11 +1775,11 @@ display:block!important;
 <strong>Switch off chunks</strong> To stop code running in any of the chunks code:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#| eval: false</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>This will not run and <span class="cf">break</span> your code</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>This will not run and <span class="cf">break</span> your code</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div>
 <ul>
@@ -1826,7 +1823,7 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside><div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_8123a6e2" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
+<div class="countdown" id="timer_1a0f366e" data-update-every="1" tabindex="0" style="right:0;bottom:0;margin:0.9em;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1838,21 +1835,21 @@ display:block!important;
 <p>The default {r} settings are for <code>echo: true</code> and <code>eval: true</code>.</p>
 <p>To switch these globally in YAML (yet another markup language) use execute and set the options to <code>false</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My report&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="at">    </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>title<span class="sc">:</span> <span class="st">&quot;My report&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>format<span class="sc">:</span> html</span>
+<span id="cb3-3"><a href="#cb3-3"></a>execute<span class="sc">:</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    echo<span class="sc">:</span> true</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    eval<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="self-contained" class="slide level2"><h2>Self contained</h2>
 <p>To create an html output that can be emailed without a folder with images and libraries:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My report&quot;</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">execute</span><span class="kw">:</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="at">    </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="at">    </span><span class="fu">eval</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="at"> </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>title<span class="sc">:</span> <span class="st">&quot;My report&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>format<span class="sc">:</span> html</span>
+<span id="cb4-3"><a href="#cb4-3"></a>execute<span class="sc">:</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>    echo<span class="sc">:</span> true</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    eval<span class="sc">:</span> true </span>
+<span id="cb4-6"><a href="#cb4-6"></a>embed<span class="sc">-</span>resources<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes"><p>Note that self-contained from RMarkdown also works as Quarto is backwards compatible.</p>
 <style type="text/css">
@@ -1868,10 +1865,10 @@ display:block!important;
 }</style></aside></section><section id="report-output-table-of-contents" class="slide level2"><h2>Report output table of contents</h2>
 <p>Code can be added to the YAML to create an interactive table of contents (in html)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;My report&quot;</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>title<span class="sc">:</span> <span class="st">&quot;My report&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>format<span class="sc">:</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  html<span class="sc">:</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>    toc<span class="sc">:</span> true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that spaces in the YAML matter!</p>
 </section><section id="naming-chunks" class="slide level2"><h2>Naming chunks</h2>

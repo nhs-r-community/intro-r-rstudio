@@ -85,7 +85,7 @@ Using spaces helps with readability
 The code below will run as R doesn't need spaces to work:
 
 ```{r}
-beds_data|>group_by(org_name)|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE))|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
+beds_dataset=beds_data|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE),.by=org_name)|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
 ```
 
 Putting the spaces in can be effort after it's been written
@@ -95,7 +95,7 @@ Putting the spaces in can be effort after it's been written
 Firstly copy the code without spaces to the document
 
 ```{r}
-beds_data|>group_by(org_name)|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE))|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
+beds_dataset=beds_data|>summarise(total_beds=sum(beds_av,na.rm=TRUE),total_occupancy=sum(occ_av,na.rm=TRUE),.by=org_name)|>mutate(perc_occ=total_occupancy/total_beds)|>arrange(desc(perc_occ))
 ```
   
 With {styler} loaded `library(styler)` go to the Add in drop down menu and select `Style Active File`
