@@ -97,10 +97,9 @@ beds_data |>
 
 ```{r }
 beds_data |> 
-  group_by(org_code) |> 
-  summarise(number = n(),
-            # distinct number of org_name
-            distinct_number = n_distinct(org_name)) |> 
+  summarise(number = n(), # distinct number of org_name
+            distinct_number = n_distinct(org_name),
+            .by = org_code) |> 
   filter(distinct_number > 1) |> 
   arrange(desc(distinct_number))
 ```

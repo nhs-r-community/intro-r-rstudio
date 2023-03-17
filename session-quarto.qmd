@@ -14,11 +14,12 @@ format:
     preview-links: true
 execute:
     echo: true
-    eval: true
+    eval: false
 ---
 
 ```{r}
 #| echo: false
+#| eval: true
 #| label: "libs"
 #| include: false
 library(countdown)
@@ -144,6 +145,7 @@ If you show how this works and the chunk has `echo: true` and `eval: true` then 
 
 ```{r}
 #| echo: false
+#| eval: true
 countdown::countdown(minutes = 7,
                      color_border = "#005EB8",
                      color_text = "#005EB8",
@@ -161,7 +163,8 @@ The default {r} settings are for `echo: true` and `eval: true`.
 
 To switch these globally in YAML (yet another markup language) use execute and set the options to `false`
 
-```{yaml}
+```{r}
+#| code-line-numbers: "3|4|5"
 title: "My report"
 format: html
 execute:
@@ -173,7 +176,8 @@ execute:
 
 To create an html output that can be emailed without a folder with images and libraries:
 
-```{yaml}
+```{r}
+#| code-line-numbers: "6"
 title: "My report"
 format: html
 execute:
@@ -190,7 +194,8 @@ Note that self-contained from RMarkdown also works as Quarto is backwards compat
 
 Code can be added to the YAML to create an interactive table of contents (in html)
 
-```{yaml}
+```{r}
+#| code-line-numbers: "2|3|4"
 title: "My report"
 format: 
   html:

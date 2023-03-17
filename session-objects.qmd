@@ -19,7 +19,7 @@ execute:
 
 ## Creating an object
 
-````{r}
+```{r}
 #| label: "libs"
 #| include: false
 library(readr)
@@ -46,9 +46,9 @@ The following code exists only as the code is run and the underlying object `bed
 ```{r}
 
 beds_data |> 
-  group_by(org_name) |> 
   summarise(total_beds = sum(beds_av, na.rm = TRUE),
-            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
+            total_occupancy = sum(occ_av, na.rm = TRUE),
+            .by = org_name) |> 
   mutate(perc_occ = total_occupancy / total_beds) |> 
   arrange(desc(perc_occ))
 
@@ -63,9 +63,9 @@ Shortcut key is `Alt and -`
 ```{r}
 
 bed_occupancy <- beds_data |> 
-  group_by(org_name) |> 
   summarise(total_beds = sum(beds_av, na.rm = TRUE),
-            total_occupancy = sum(occ_av, na.rm = TRUE)) |> 
+            total_occupancy = sum(occ_av, na.rm = TRUE),
+            .by = org_name) |> 
   mutate(perc_occ = total_occupancy / total_beds) |> 
   arrange(desc(perc_occ))
 

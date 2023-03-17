@@ -1226,9 +1226,9 @@ Zoë Turner
 <p>The following code exists only as the code is run and the underlying object <code>beds_data</code> is never changed</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">group_by</span>(org_name) <span class="sc">|&gt;</span> </span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">summarise</span>(<span class="at">total_beds =</span> <span class="fu">sum</span>(beds_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-4"><a href="#cb1-4"></a>            <span class="at">total_occupancy =</span> <span class="fu">sum</span>(occ_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">summarise</span>(<span class="at">total_beds =</span> <span class="fu">sum</span>(beds_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-3"><a href="#cb1-3"></a>            <span class="at">total_occupancy =</span> <span class="fu">sum</span>(occ_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-4"><a href="#cb1-4"></a>            <span class="at">.by =</span> org_name) <span class="sc">|&gt;</span> </span>
 <span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">mutate</span>(<span class="at">perc_occ =</span> total_occupancy <span class="sc">/</span> total_beds) <span class="sc">|&gt;</span> </span>
 <span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(perc_occ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1254,9 +1254,9 @@ Zoë Turner
 <p>Shortcut key is <code>Alt and -</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>bed_occupancy <span class="ot">&lt;-</span> beds_data <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">group_by</span>(org_name) <span class="sc">|&gt;</span> </span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">summarise</span>(<span class="at">total_beds =</span> <span class="fu">sum</span>(beds_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb3-4"><a href="#cb3-4"></a>            <span class="at">total_occupancy =</span> <span class="fu">sum</span>(occ_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">summarise</span>(<span class="at">total_beds =</span> <span class="fu">sum</span>(beds_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-3"><a href="#cb3-3"></a>            <span class="at">total_occupancy =</span> <span class="fu">sum</span>(occ_av, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-4"><a href="#cb3-4"></a>            <span class="at">.by =</span> org_name) <span class="sc">|&gt;</span> </span>
 <span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">mutate</span>(<span class="at">perc_occ =</span> total_occupancy <span class="sc">/</span> total_beds) <span class="sc">|&gt;</span> </span>
 <span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(perc_occ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
