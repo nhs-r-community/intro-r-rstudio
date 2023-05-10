@@ -52,7 +52,6 @@ order.
 [Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
 
 [Using {datapasta}](https://nhs-r-community.github.io/intro-r-rstudio/session-datapasta.html#/title-slide)  
-[Set up SQL database connections](https://nhs-r-community.github.io/intro-r-rstudio/session-sql.html#/title-slide)  
 [Using {janitor} to remove blank rows/columns and tidy column names](https://nhs-r-community.github.io/intro-r-rstudio/session-janitor.html#/title-slide)  
 [Using {stringr} for cleaning with strings (for example % wildcard searches)](https://nhs-r-community.github.io/intro-r-rstudio/session-stringr.html#/title-slide)  
 
