@@ -45,7 +45,12 @@ order.
 [Finding help on functions using RStudio and the internet](https://nhs-r-community.github.io/intro_r/05-workshop_functions.html#1)  
 [Ongoing learning resources](https://nhs-r-community.github.io/intro_r/09-workshop-learning.html#1)  
 
-### Extra
+# Part 3
+[Introducing chart visualisations using {ggplot2](https://nhs-r-community.github.io/intro_r/04-workshop_ggplot2.html#1)
+
+## Break
+[Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
+
 [Using {datapasta}](https://nhs-r-community.github.io/intro-r-rstudio/session-datapasta.html#/title-slide)  
 [Set up SQL database connections](https://nhs-r-community.github.io/intro-r-rstudio/session-sql.html#/title-slide)  
 [Using {janitor} to remove blank rows/columns and tidy column names](https://nhs-r-community.github.io/intro-r-rstudio/session-janitor.html#/title-slide)  
