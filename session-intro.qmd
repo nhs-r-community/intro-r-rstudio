@@ -32,14 +32,14 @@ Introduction and getting started
 Importing data  
 :::
 ::: {.fragment .fade-in}
-Import features of coding  
+Introduce features of coding  
 :::
 ::: {.fragment .fade-in}
---------- Lunch (1 hour) -----------
+--------- Course end -----------
 :::
 
 
-## Agenda - session two (about 4 hours)
+## Agenda - session two (about 3.5 hours)
 
 Chapter overview
 
@@ -53,7 +53,24 @@ Manipulating data
 Finding help
 :::
 ::: {.fragment .fade-in}
---------- Finish about 430-5pm ---------
+--------- Course end ---------
+:::
+
+## Agenda - session three (about 3.5 hours)
+
+Chapter overview
+
+::: {.fragment .fade-in}
+Introducing {ggplot2} for data visualisations
+:::
+::: {.fragment .fade-in}
+--------- Break -----------
+:::
+::: {.fragment .fade-in}
+Further useful functions from packages to clean data
+:::
+::: {.fragment .fade-in}
+--------- Course end ---------
 :::
 
 ## Course Aims
