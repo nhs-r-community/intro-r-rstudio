@@ -1,21 +1,9 @@
 ---
 title: "Introduction to R and Rstudio"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Introduction"
-author: "Zoë Turner"
-format:
-  revealjs:
-    theme: [default, nhsr-quarto.scss]
-    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-    code-link: true
-    css: nhsr-quarto.scss
-    self-contained: true
-    preview-links: true
 execute: 
   echo: false
   eval: false
-embed-resources: true  
 ---
 
 ## Agenda - session one (about 3.5 hours)
