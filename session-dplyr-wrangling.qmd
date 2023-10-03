@@ -1,17 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session  - Cleaning data with {dplyr}"
-author: "Zoë Turner"
-format:
-  revealjs:
-    theme: [default, nhsr-quarto.scss]
-    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-    code-link: true
-    css: nhsr-quarto.scss
-    self-contained: true
-    preview-links: true
 execute: 
     echo: true
     eval: false
@@ -416,7 +405,7 @@ countdown::countdown(minutes = 10,
 beds_data |> 
   summarise(total_beds = sum(beds_av, na.rm = TRUE),
             total_occupancy = sum(occ_av, na.rm = TRUE),
-            .by = date) |> 
+            .by = org_name) |> 
   mutate(perc_occ = total_occupancy / total_beds) |> 
   arrange(desc(perc_occ))
 

@@ -1,5 +1,15 @@
 project:
   title: "intro-r-nhse"
 #  output-dir: "/slides"
-  
-
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true  
+title-slide-attributes: 
+  data-background-color: "#43464B"
+embed-resources: true
