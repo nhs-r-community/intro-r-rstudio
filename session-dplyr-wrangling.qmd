@@ -416,7 +416,7 @@ countdown::countdown(minutes = 10,
 beds_data |> 
   summarise(total_beds = sum(beds_av, na.rm = TRUE),
             total_occupancy = sum(occ_av, na.rm = TRUE),
-            .by = date) |> 
+            .by = org_name) |> 
   mutate(perc_occ = total_occupancy / total_beds) |> 
   arrange(desc(perc_occ))
 
