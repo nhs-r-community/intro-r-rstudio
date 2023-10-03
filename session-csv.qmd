@@ -3,7 +3,7 @@ title: "Introduction to R and Rstudio"
 subtitle: "Session - import csv"
 execute:
   echo: true
-  eval: false    
+  eval: false
 ---
 
 
