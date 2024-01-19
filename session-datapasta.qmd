@@ -4,7 +4,6 @@ subtitle: "Session - import data {datapasta}"
 author: "Zoë Turner"
 execute: 
     eval: true
-    echo: true
 ---
 
 
@@ -34,9 +33,10 @@ library(datapasta)
 
 ## Have a go!
 
-1.  Using a small table from the [NHS Workforce statistics statistics](https://www.ethnicity-facts-figures.service.gov.uk/workforce-and-business/workforce-diversity/nhs-workforce/latest#:~:text=Main%20facts%20and%20figures%20around%201.3%20million%20people,22.1%25%20were%20from%20all%20other%20ethnic%20groups%20combined) open the [csv file for number and percentage of NHS staff by ethnicity](https://www.ethnicity-facts-figures.service.gov.uk/workforce-and-business/workforce-diversity/nhs-workforce/latest/downloads/by-ethnicity.csv) 1.Highlight the table, including the column names and copy (Ctrl+C)
-2.  Select the `Addins/Paste as tribble`
-3.  Run the code using the `Run` button or Ctrl+Enter anywhere in the code
+1.  Using a small [csv file for number and percentage of NHS staff by ethnicity](https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv), open the csv, highlight the data including the column names and copy (Ctrl+C)
+2.  In a script or Quarto R chunk, select the `Addins/Paste as tribble` 
+3.  Add code to make this an object (hint: it needs a name and an assign operator)
+3.  Run the code
 
 ```{r}
 #| echo: false
@@ -55,7 +55,7 @@ countdown::countdown(minutes = 10,
 ## A data frame in code
 
 ```{r}
-tibble::tribble(
+by_ethnicity <- tibble::tribble(
   ~Ethnicity, ~`%`, ~Headcount, ~`%.working.age.population.(2011)`,
      "Asian",   10,     118396,                                7.2,
      "Black",  6.1,      72321,                                3.4,

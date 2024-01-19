@@ -2,24 +2,20 @@
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - {stringr}"
 execute:
-  echo: true
-  eval: false
+  eval: true
 ---
 
 ## Wildcards searches using {stringr}
 
 ```{r}
 #| echo: false
-#| eval: true
 #| label: "libs"
-library(readr)
-library(dplyr)
+library(tidyverse)
 library(stringr)
 ```
 
 ```{r}
 #| echo: false
-#| eval: true
 #| label: "load-data"
 beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/beds_data.csv"),
   col_types = cols(date = col_date(format = "%d/%m/%Y")),
@@ -30,6 +26,7 @@ beds_data <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/int
 A natural step to searching for long strings is to consider searching by key words
 
 ```{r}
+#| eval: false
 library(dplyr)
 library(stringr)
 beds_data |>
@@ -44,27 +41,27 @@ See what happens when negate is changed to `TRUE`
 
 ## Adding trailing spaces
 
-Quite often data has trailing spaces but importing the csv files, interestingly, corrects this!
+Quite often data has trailing spaces but using {readr}, interestingly, corrects this!
 
-Creating trailing spaces in R
+This data set has had trailing white space added to the beginning of the name and afterwards:
 
 ```{r}
-#| eval: true
-beds_data |>
-  mutate(
-    new_org_name = paste(org_name, "  "),
-    org_name_number = nchar(org_name),
-    new_org_name_number = nchar(new_org_name)
+by_ethnicity <- tibble::tribble(
+  ~Ethnicity, ~`%`, ~Headcount, ~`%.working.age.population.(2011)`,
+     "  Asian  ",  10,     118396,                                7.2,
+     "  Black ",  6.1,      72321,                                3.4,
+   "    Chinese    ",  0.6,       6536,                                0.9,
+     " Mixed  ",  1.7,      20607,                                1.8,
+     " White ", 79.2,     934544,                               85.6,
+     "Other",  2.3,      27169,                                1.1
   )
 ```
 
 ## Removing trailing spaces
 
 ```{r}
-#| eval: true
-beds_data |>
-  mutate(new_org_name = paste(org_name, "  ")) |>
-  mutate(returned_org_name = str_trim(new_org_name, "both"))
+by_ethnicity |>
+  mutate(trimmed_name = str_trim(Ethnicity, "both"))
 ```
 
 ## End session

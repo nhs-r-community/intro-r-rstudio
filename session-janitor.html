@@ -1228,9 +1228,9 @@ Zoë Turner
 </ul>
 </div>
 </section><section id="example-of-cleaning-column-headers" class="slide level2"><h2>Example of cleaning column headers</h2>
+<p>Getting the data from following slides</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>by_ethnicity <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>by_ethnicity <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="changing-the-column-names" class="slide level2"><h2>Changing the column names</h2>
 <p>Removes spaces and changes the <code>%</code> to a word</p>
@@ -1244,14 +1244,46 @@ Zoë Turner
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Add in blank row and column</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>by_ethnicity_blank <span class="ot">&lt;-</span> by_ethnicity <span class="sc">|&gt;</span> </span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">mutate</span>(<span class="at">blank_column =</span> <span class="cn">NA</span>) <span class="sc">|&gt;</span> <span class="co"># Blank column</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">add_row</span>() <span class="co"># Blank row</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a>by_ethnicity_blank <span class="sc">|&gt;</span> </span>
-<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">remove_empty</span>(<span class="at">which =</span> <span class="fu">c</span>(<span class="st">&quot;rows&quot;</span>, <span class="st">&quot;cols&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a>by_ethnicity_blank <span class="ot">&lt;-</span> by_ethnicity <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">mutate</span>(<span class="at">blank_column =</span> <span class="cn">NA</span>) <span class="sc">|&gt;</span> <span class="co"># Blank column</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">add_row</span>() <span class="co"># Blank row</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>by_ethnicity_blank <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">remove_empty</span>(<span class="at">which =</span> <span class="fu">c</span>(<span class="st">&quot;rows&quot;</span>, <span class="st">&quot;cols&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="getting-duplicates" class="slide level2"><h2>Getting duplicates</h2>
+<p>Often code removes duplicates but sometimes you’ll want to see all the duplicated information:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>duplicates <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>     <span class="sc">~</span>Ethnicity, <span class="sc">~</span><span class="st">`</span><span class="at">%</span><span class="st">`</span>, <span class="sc">~</span><span class="st">`</span><span class="at">estimated.number.(thousands)</span><span class="st">`</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>          <span class="st">&quot;All&quot;</span>, <span class="fl">90.8</span>,                           <span class="dv">48098</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>          <span class="st">&quot;All&quot;</span>, <span class="fl">90.8</span>,                           <span class="dv">48098</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>          <span class="st">&quot;All&quot;</span>, <span class="fl">90.8</span>,                           <span class="dv">48098</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="st">&quot;Bangladeshi&quot;</span>, <span class="fl">91.9</span>,                             <span class="dv">354</span>,</span>
+<span id="cb4-7"><a href="#cb4-7"></a>      <span class="st">&quot;Chinese&quot;</span>, <span class="fl">98.6</span>,                             <span class="dv">265</span>,</span>
+<span id="cb4-8"><a href="#cb4-8"></a>       <span class="st">&quot;Indian&quot;</span>, <span class="fl">90.4</span>,                            <span class="dv">1077</span>,</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="st">&quot;Pakistani&quot;</span>, <span class="fl">91.1</span>,                             <span class="dv">767</span>,</span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="st">&quot;Asian other&quot;</span>, <span class="fl">95.6</span>,                             <span class="dv">620</span>,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>        <span class="st">&quot;Black&quot;</span>, <span class="fl">92.8</span>,                            <span class="dv">1376</span>,</span>
+<span id="cb4-12"><a href="#cb4-12"></a>        <span class="st">&quot;Mixed&quot;</span>,   <span class="dv">96</span>,                             <span class="dv">547</span>,</span>
+<span id="cb4-13"><a href="#cb4-13"></a>        <span class="st">&quot;White&quot;</span>, <span class="fl">90.5</span>,                           <span class="dv">42296</span>,</span>
+<span id="cb4-14"><a href="#cb4-14"></a>        <span class="st">&quot;Other&quot;</span>, <span class="fl">94.5</span>,                             <span class="dv">796</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>duplicates <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">get_dupes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  Ethnicity   `%` `estimated.number.(thousands)` dupe_count
+  &lt;chr&gt;     &lt;dbl&gt;                          &lt;dbl&gt;      &lt;int&gt;
+1 All        90.8                          48098          3
+2 All        90.8                          48098          3
+3 All        90.8                          48098          3</code></pre>
+</div>
+</div>
 </div>
 </section><section id="end-session" class="slide level2"><h2>End session</h2>
 
