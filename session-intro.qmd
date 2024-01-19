@@ -3,7 +3,6 @@ title: "Introduction to R and Rstudio"
 subtitle: "Session - Introduction"
 execute: 
   echo: false
-  eval: false
 ---
 
 ## Agenda - session one (about 3.5 hours)

@@ -2,7 +2,6 @@
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - R and R studio"
 execute:
-  echo: true
   eval: true   
 ---
 

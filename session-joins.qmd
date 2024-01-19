@@ -1,9 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - joins"
-execute:
-  echo: true
-  eval: false
 ---
 
 ## Relational data
@@ -36,7 +33,7 @@ We use joins in SQL or R, (V, H or X) LOOKUPs in Excel
 
 ## Joins
 
-All the joins in SQL are available in R and a couple more called `filtering joins` which have the same concept as `EXISTS` used in the `WHERE` clause in SQL.
+All the joins in SQL are available in R called `mutating joins` and a couple more called `filtering joins` which have the same concept as `EXISTS` used in the `WHERE` clause in SQL.
 
 ## left_join()
 
@@ -59,7 +56,7 @@ x |>
 :::
 :::
 
-## Have a go!
+## Import some files!
 
 We're going to join two tables one with cases of tuberculosis by country, one with population by country.
 
@@ -127,7 +124,7 @@ If two tables have different names for same variable:
 ```{r}
 tb_cases |> 
   left_join(tb_new_table, by = c("country" = "Place",
-                                 "year" = "Yr"))
+                                 "year" = "Year"))
 ```
 
 as of 2023
@@ -135,7 +132,7 @@ as of 2023
 ```{r}
 tb_cases |> 
   left_join(tb_new_table, by = join_by(country == Place,
-                                       year == Yr))
+                                       year == Year))
 ```
 
 ## semi_join()
@@ -165,7 +162,7 @@ lookup_table <- tb_new_table |>
 
 tb_cases |> 
   semi_join(lookup_table, by = join_by(country == Place,
-                                       year == Yr))
+                                       year == Year))
 ```
 
 ## anti_join()
@@ -189,7 +186,7 @@ Join to the `tb_new_table` and exclude only those records where the column `Firs
 ```{r}
 tb_cases |> 
   anti_join(lookup_table, by = join_by(country == Place,
-                                       year == Yr))
+                                       year == Year))
 ```
 
 ## End session

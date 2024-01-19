@@ -1,9 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - Packages"
-execute:
-    echo: true
-    eval: false
 ---
 
 ## Package locations

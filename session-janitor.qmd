@@ -1,26 +1,24 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session - {janitor} clean data"
-execute:
-  echo: true
-  eval: false
 ---
-
 
 ## Specific packages to clean data
 
 Packages like {janitor} have functions to do a lot of the cleaning required for data like:
 
-:::incremental
-- Remove blank rows and columns
-- Change Excel serial dates to read dates
-- Standardise column names and remove spaces
+::: incremental
+-   Remove blank rows and columns
+-   Change Excel serial dates to read dates
+-   Standardise column names and remove spaces
 :::
 
 ## Example of cleaning column headers
 
+Getting the data from following slides 
+
 ```{r}
-library(readr)
+
 by_ethnicity <- read_csv("https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv")
 ```
 
@@ -40,14 +38,47 @@ by_ethnicity |>
 ```{r}
 # Add in blank row and column
 
-library(dplyr)
-library(janitor)
 by_ethnicity_blank <- by_ethnicity |> 
   mutate(blank_column = NA) |> # Blank column
   add_row() # Blank row
 
 by_ethnicity_blank |> 
   remove_empty(which = c("rows", "cols"))
+```
+
+## Getting duplicates
+
+Often code removes duplicates but sometimes you'll want to see all the duplicated information:
+
+```{r}
+#| eval: true
+
+duplicates <- tibble::tribble(
+     ~Ethnicity, ~`%`, ~`estimated.number.(thousands)`,
+          "All", 90.8,                           48098,
+          "All", 90.8,                           48098,
+          "All", 90.8,                           48098,
+  "Bangladeshi", 91.9,                             354,
+      "Chinese", 98.6,                             265,
+       "Indian", 90.4,                            1077,
+    "Pakistani", 91.1,                             767,
+  "Asian other", 95.6,                             620,
+        "Black", 92.8,                            1376,
+        "Mixed",   96,                             547,
+        "White", 90.5,                           42296,
+        "Other", 94.5,                             796
+  )
+
+```
+
+. . .
+
+```{r}
+#| eval: true
+
+library(janitor)
+duplicates |> 
+  get_dupes()
 ```
 
 ## End session

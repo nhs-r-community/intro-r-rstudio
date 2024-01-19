@@ -3,7 +3,6 @@ title: "Introduction to R and Rstudio"
 subtitle: "Session  - Showing more {dplyr} functions"
 author: "Zoë Turner"
 execute:
-  echo: true
   eval: true
 ---
 

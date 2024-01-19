@@ -1,9 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - styling code"
-execute:
-  echo: true
-  eval: false
 ---
 
 ## Code style

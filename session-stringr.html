@@ -1232,53 +1232,34 @@ Zoë Turner
 </div>
 <p>See what happens when negate is changed to <code>TRUE</code></p>
 </section><section id="adding-trailing-spaces" class="slide level2"><h2>Adding trailing spaces</h2>
-<p>Quite often data has trailing spaces but importing the csv files, interestingly, corrects this!</p>
-<p>Creating trailing spaces in R</p>
+<p>Quite often data has trailing spaces but using {readr}, interestingly, corrects this!</p>
+<p>This data set has had trailing white space added to the beginning of the name and afterwards:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>beds_data <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    <span class="at">new_org_name =</span> <span class="fu">paste</span>(org_name, <span class="st">&quot;  &quot;</span>),</span>
-<span id="cb2-4"><a href="#cb2-4"></a>    <span class="at">org_name_number =</span> <span class="fu">nchar</span>(org_name),</span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="at">new_org_name_number =</span> <span class="fu">nchar</span>(new_org_name)</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4,558 × 8
-   date       org_code org_name      beds_av occ_av new_org_name org_name_number
-   &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;                  &lt;int&gt;
- 1 2013-09-01 R1A      Worcestershi…     129    117 &quot;Worcesters…              30
- 2 2013-09-01 R1C      Solent            105     82 &quot;Solent   &quot;                6
- 3 2013-09-01 R1E      Staffordshir…      NA     NA &quot;Staffordsh…              44
- 4 2013-09-01 R1F      Isle Of Wight      54     42 &quot;Isle Of Wi…              13
- 5 2013-09-01 R1H      Barts Health       NA     NA &quot;Barts Heal…              12
- 6 2013-09-01 R1J      Gloucestersh…      NA     NA &quot;Gloucester…              29
- 7 2013-09-01 RA2      Royal Surrey…      NA     NA &quot;Royal Surr…              28
- 8 2013-09-01 RA3      Weston Area …      NA     NA &quot;Weston Are…              18
- 9 2013-09-01 RA4      Yeovil Distr…      NA     NA &quot;Yeovil Dis…              24
-10 2013-09-01 RA7      University H…      NA     NA &quot;University…              28
-# ℹ 4,548 more rows
-# ℹ 1 more variable: new_org_name_number &lt;int&gt;</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>by_ethnicity <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="sc">~</span>Ethnicity, <span class="sc">~</span><span class="st">`</span><span class="at">%</span><span class="st">`</span>, <span class="sc">~</span>Headcount, <span class="sc">~</span><span class="st">`</span><span class="at">%.working.age.population.(2011)</span><span class="st">`</span>,</span>
+<span id="cb2-3"><a href="#cb2-3"></a>     <span class="st">&quot;  Asian  &quot;</span>,  <span class="dv">10</span>,     <span class="dv">118396</span>,                                <span class="fl">7.2</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>     <span class="st">&quot;  Black &quot;</span>,  <span class="fl">6.1</span>,      <span class="dv">72321</span>,                                <span class="fl">3.4</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>   <span class="st">&quot;    Chinese    &quot;</span>,  <span class="fl">0.6</span>,       <span class="dv">6536</span>,                                <span class="fl">0.9</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>     <span class="st">&quot; Mixed  &quot;</span>,  <span class="fl">1.7</span>,      <span class="dv">20607</span>,                                <span class="fl">1.8</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>     <span class="st">&quot; White &quot;</span>, <span class="fl">79.2</span>,     <span class="dv">934544</span>,                               <span class="fl">85.6</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>     <span class="st">&quot;Other&quot;</span>,  <span class="fl">2.3</span>,      <span class="dv">27169</span>,                                <span class="fl">1.1</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="removing-trailing-spaces" class="slide level2"><h2>Removing trailing spaces</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>beds_data <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">mutate</span>(<span class="at">new_org_name =</span> <span class="fu">paste</span>(org_name, <span class="st">&quot;  &quot;</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">mutate</span>(<span class="at">returned_org_name =</span> <span class="fu">str_trim</span>(new_org_name, <span class="st">&quot;both&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>by_ethnicity <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">mutate</span>(<span class="at">trimmed_name =</span> <span class="fu">str_trim</span>(Ethnicity, <span class="st">&quot;both&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4,558 × 7
-   date       org_code org_name    beds_av occ_av new_org_name returned_org_name
-   &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;            
- 1 2013-09-01 R1A      Worcesters…     129    117 &quot;Worcesters… Worcestershire H…
- 2 2013-09-01 R1C      Solent          105     82 &quot;Solent   &quot;  Solent           
- 3 2013-09-01 R1E      Staffordsh…      NA     NA &quot;Staffordsh… Staffordshire An…
- 4 2013-09-01 R1F      Isle Of Wi…      54     42 &quot;Isle Of Wi… Isle Of Wight    
- 5 2013-09-01 R1H      Barts Heal…      NA     NA &quot;Barts Heal… Barts Health     
- 6 2013-09-01 R1J      Gloucester…      NA     NA &quot;Gloucester… Gloucestershire …
- 7 2013-09-01 RA2      Royal Surr…      NA     NA &quot;Royal Surr… Royal Surrey Cou…
- 8 2013-09-01 RA3      Weston Are…      NA     NA &quot;Weston Are… Weston Area Heal…
- 9 2013-09-01 RA4      Yeovil Dis…      NA     NA &quot;Yeovil Dis… Yeovil District …
-10 2013-09-01 RA7      University…      NA     NA &quot;University… University Hospi…
-# ℹ 4,548 more rows</code></pre>
+<pre><code># A tibble: 6 × 5
+  Ethnicity           `%` Headcount %.working.age.population.(201…¹ trimmed_name
+  &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;                           &lt;dbl&gt; &lt;chr&gt;       
+1 &quot;  Asian  &quot;        10      118396                             7.2 Asian       
+2 &quot;  Black &quot;          6.1     72321                             3.4 Black       
+3 &quot;    Chinese    &quot;   0.6      6536                             0.9 Chinese     
+4 &quot; Mixed  &quot;          1.7     20607                             1.8 Mixed       
+5 &quot; White &quot;          79.2    934544                            85.6 White       
+6 &quot;Other&quot;             2.3     27169                             1.1 Other       
+# ℹ abbreviated name: ¹​`%.working.age.population.(2011)`</code></pre>
 </div>
 </div>
 </section><section id="end-session" class="slide level2"><h2>End session</h2>

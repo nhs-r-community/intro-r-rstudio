@@ -1,9 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - Cleaning data with {dplyr}"
-execute: 
-    echo: true
-    eval: false
 ---
 
 
