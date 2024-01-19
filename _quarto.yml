@@ -1,5 +1,8 @@
 project:
   title: "intro-r-nhse"
+  render: 
+    - "*.qmd"
+    - "!*.md"
 author: "Zoë Turner"
 format:
   revealjs:
@@ -11,3 +14,6 @@ format:
 title-slide-attributes: 
   data-background-color: "#43464B"
 embed-resources: true
+execute:
+  echo: true
+  eval: false

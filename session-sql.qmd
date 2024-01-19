@@ -1,9 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session  - SQL connections"
-execute:
-  echo: true
-  eval: false
 ---
 
 ## SQL connections

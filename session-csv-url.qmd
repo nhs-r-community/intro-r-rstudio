@@ -2,9 +2,6 @@
 title: "Introduction to R and Rstudio"
 subtitle: "Session - import csv from the web"
 author: "Zoë Turner"
-execute:
-  echo: true
-  eval: false    
 ---
 
 
@@ -19,19 +16,23 @@ This removes a step in the Reproducible Analytical Pipeline where a person is re
 
 We will use the "Import Dataset" button which is the same way to get csv files from a computer:
 
-<img src="img/session03/import-screenshot.PNG" alt="Screenshot of RStudio with Import Dataset drop down button highlighted as well as the file capacity_ae.csv in the Files tab." class="center" width="80%"/>
+<img src="img/session03/import-screenshot.PNG" alt="Screenshot of RStudio with Import Dataset drop down button highlighted" class="center" width="80%"/>
 
 ## File location - using a url
 
-Instead of selecting a file, instead type the following into the top box and press `Update`
+Instead of selecting a file, instead copy the url into the `File/URL` box next to `Browse`
 
-`https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/tb_cases.csv`
+```
+https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv
+```
 
-this will give the following code in the wizard (as well as a preview of the data)
+. . .
+
+Browse changes to `Update` which will pressed will give a preview and the code is:
 
 ```{r}
 library(readr)
-tb_cases <- read_csv(url("https://raw.githubusercontent.com/nhs-r-community/intro_r_data/main/tb_cases.csv"))
+by_ethnicity <- read_csv(url("https://www.ethnicity-facts-figures.service.gov.uk/culture-and-community/digital/internet-use/latest/downloads/by-ethnicity.csv"))
 ```
 
 ## End session
