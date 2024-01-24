@@ -11,6 +11,10 @@ flexibility for trainers.
 The link to the published materials is in a suggested
 order.
 
+## Course preparation
+
+Data for the course is held in a separate [repository](https://github.com/nhs-r-community/intro_r_data) and details on how to get set up for the course can be found in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/training.html#introduction-to-r-and-rstudio-course-materials).
+
 # Part 1
 
 ## Introduction
