@@ -1,7 +1,6 @@
 ---
 title: "Introduction to R and Rstudio"
 subtitle: "Session - import csv from the web"
-author: "Zoë Turner"
 ---
 
 
