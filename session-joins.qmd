@@ -190,3 +190,7 @@ tb_cases |>
 ```
 
 ## End session
+
+Thanks for the animated join gifs to Garrick Aden-Buie in his blog on [tidyexplain](https://www.garrickadenbuie.com/project/tidyexplain/).
+
+A static representation of the joins can be found in the [data wrangling cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) shared by Anya Ferguson in the [Intermediate to R](https://github.com/nhs-r-community/intermediate_R_training) NHS-R course.
