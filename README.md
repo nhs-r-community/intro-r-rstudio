@@ -18,34 +18,34 @@ Data for the course is held in a separate [repository](https://github.com/nhs-r-
 # Part 1
 
 ## Introduction
-[Course agenda and aims](https://nhs-r-community.github.io/intro-r-rstudio/session-intro.html#/title-slide)  
-[Introducing and getting started with RStudio](https://nhs-r-community.github.io/intro-r-rstudio/session-rstudio.html#/title-slide)  
-[Introducing what packages are in R](https://nhs-r-community.github.io/intro-r-rstudio/session-packages.html#/title-slide)  
+[Course agenda and aims](https://intro-r-rstudio.nhsrcommunity.com/session-intro.html#/title-slide)  
+[Introducing and getting started with RStudio](https://intro-r-rstudio.nhsrcommunity.com/session-rstudio.html#/title-slide)  
+[Introducing what packages are in R](https://intro-r-rstudio.nhsrcommunity.com/session-packages.html#/title-slide)  
 
 ## Break
-[Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
+[Break](https://intro-r-rstudio.nhsrcommunity.com/session-break-slide.html#/title-slide)  
 
-[Projects](https://nhs-r-community.github.io/intro-r-rstudio/session-projects.html#/title-slide)  
-[Opening Quarto](https://nhs-r-community.github.io/intro-r-rstudio/session-quarto.html#/title-slide)  
+[Projects](https://intro-r-rstudio.nhsrcommunity.com/session-projects.html#/title-slide)  
+[Opening Quarto](https://intro-r-rstudio.nhsrcommunity.com/session-quarto.html#/title-slide)  
 
 # Part 2
 
 ## Importing data
-[Import a csv](https://nhs-r-community.github.io/intro-r-rstudio/session-csv.html#/title-slide)  
-[Import a messy csv](https://nhs-r-community.github.io/intro-r-rstudio/session-messy-csv.html#/title-slide)  
-[Import a csv from the web](https://nhs-r-community.github.io/intro-r-rstudio/session-csv-url.html#/title-slide)  
+[Import a csv](https://intro-r-rstudio.nhsrcommunity.com/session-csv.html#/title-slide)  
+[Import a messy csv](https://intro-r-rstudio.nhsrcommunity.com/session-messy-csv.html#/title-slide)  
+[Import a csv from the web](https://intro-r-rstudio.nhsrcommunity.com/session-csv-url.html#/title-slide)  
 
 ## Important features of coding
-[{dplyr} data wrangling with a selection of main functions](https://nhs-r-community.github.io/intro-r-rstudio/session-dplyr-wrangling.html#/title-slide)  
-[{dplyr} showcase more functions](https://nhs-r-community.github.io/intro-r-rstudio/session-dplyr-showcase.html#/title-slide)  
+[{dplyr} data wrangling with a selection of main functions](https://intro-r-rstudio.nhsrcommunity.com/session-dplyr-wrangling.html#/title-slide)  
+[{dplyr} showcase more functions](https://intro-r-rstudio.nhsrcommunity.com/session-dplyr-showcase.html#/title-slide)  
 
 ## Break
-[Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
+[Break](https://intro-r-rstudio.nhsrcommunity.com/session-break-slide.html#/title-slide)  
 
-[Creating new objects](https://nhs-r-community.github.io/intro-r-rstudio/session-objects.html#/title-slide)  
-[Introducing vectors](https://nhs-r-community.github.io/intro-r-rstudio/session-vectors.html#/title-slide)  
-[Joining data together](https://nhs-r-community.github.io/intro-r-rstudio/session-joins.html#/title-slide)  
-[How to style your R code](https://nhs-r-community.github.io/intro-r-rstudio/session-styling.html#/title-slide)  
+[Creating new objects](https://intro-r-rstudio.nhsrcommunity.com/session-objects.html#/title-slide)  
+[Introducing vectors](https://intro-r-rstudio.nhsrcommunity.com/session-vectors.html#/title-slide)  
+[Joining data together](https://intro-r-rstudio.nhsrcommunity.com/session-joins.html#/title-slide)  
+[How to style your R code](https://intro-r-rstudio.nhsrcommunity.com/session-styling.html#/title-slide)  
 
 ## Finding Help
 [Finding help on functions using RStudio and the internet](https://nhs-r-community.github.io/intro_r/05-workshop_functions.html#1)  
@@ -55,11 +55,11 @@ Data for the course is held in a separate [repository](https://github.com/nhs-r-
 [Introducing chart visualisations using {ggplot2}](https://nhs-r-community.github.io/intro_r/04-workshop_ggplot2.html#1)
 
 ## Break
-[Break](https://nhs-r-community.github.io/intro-r-rstudio/session-break-slide.html#/title-slide)  
+[Break](https://intro-r-rstudio.nhsrcommunity.com/session-break-slide.html#/title-slide)  
 
-[Using {datapasta}](https://nhs-r-community.github.io/intro-r-rstudio/session-datapasta.html#/title-slide)  
-[Using {janitor} to remove blank rows/columns and tidy column names](https://nhs-r-community.github.io/intro-r-rstudio/session-janitor.html#/title-slide)  
-[Using {stringr} for cleaning with strings (for example % wildcard searches)](https://nhs-r-community.github.io/intro-r-rstudio/session-stringr.html#/title-slide)  
+[Using {datapasta}](https://intro-r-rstudio.nhsrcommunity.com/session-datapasta.html#/title-slide)  
+[Using {janitor} to remove blank rows/columns and tidy column names](https://intro-r-rstudio.nhsrcommunity.com/session-janitor.html#/title-slide)  
+[Using {stringr} for cleaning with strings (for example % wildcard searches)](https://intro-r-rstudio.nhsrcommunity.com/session-stringr.html#/title-slide)  
 
 
 # Spotted a mistake?
