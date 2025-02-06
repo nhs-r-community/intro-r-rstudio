@@ -10,7 +10,6 @@ format:
     logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
     code-link: true
     css: nhsr-quarto.scss
-    preview-links: true  
 title-slide-attributes: 
   data-background-color: "#43464B"
 embed-resources: true

@@ -10,21 +10,24 @@ execute:
 Chapter overview
 
 ::: {.fragment .fade-in}
-Introduction and getting started  
+Introduction and getting started
 :::
+
 ::: {.fragment .fade-in}
---------- Break -----------  
+--------- Break -----------
 :::
+
 ::: {.fragment .fade-in}
-Importing data  
+Importing data
 :::
+
 ::: {.fragment .fade-in}
-Introduce features of coding  
+Introduce features of coding
 :::
+
 ::: {.fragment .fade-in}
 --------- Course end -----------
 :::
-
 
 ## Agenda - session two (about 3.5 hours)
 
@@ -33,12 +36,15 @@ Chapter overview
 ::: {.fragment .fade-in}
 Manipulating data
 :::
+
 ::: {.fragment .fade-in}
 --------- Break -----------
 :::
+
 ::: {.fragment .fade-in}
 Finding help
 :::
+
 ::: {.fragment .fade-in}
 --------- Course end ---------
 :::
@@ -50,12 +56,15 @@ Chapter overview
 ::: {.fragment .fade-in}
 Introducing {ggplot2} for data visualisations
 :::
+
 ::: {.fragment .fade-in}
 --------- Break -----------
 :::
+
 ::: {.fragment .fade-in}
 Further useful functions from packages to clean data
 :::
+
 ::: {.fragment .fade-in}
 --------- Course end ---------
 :::
